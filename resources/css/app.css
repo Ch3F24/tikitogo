@@ -1,0 +1,37 @@
+@import "tailwindcss/tailwind";
+@import "tailwindcss/screens";
+@import "tailwindcss/variants";
+
+html {
+    scroll-behavior: smooth;
+}
+.menu-container > div {
+    min-height: calc(100vh / 2);
+    display: none;
+}
+.menu-container > input:checked +label + div {
+    display: block;
+}
+
+.menu-container > input:checked + label {
+    @apply outline-none ring-2 ring-offset-2
+}
+.menu-container > input:disabled + label {
+    @apply opacity-60 cursor-not-allowed;
+}
+
+.menu-color_0 {
+    @apply bg-tiki-blue;
+}
+.menu-color_1 {
+    @apply bg-tiki-green;
+}
+.menu-color_2 {
+    @apply bg-yellow-400;
+}
+.menu-color_3 {
+    @apply bg-tiki-orange;
+}
+.menu-color_4 {
+    @apply bg-tiki-magenta;
+}
