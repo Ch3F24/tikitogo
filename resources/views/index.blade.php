@@ -109,7 +109,7 @@
                     @else
                         <div class="my-8 lg:my-16 text-center">
                             <p class="text-4xl font-bold text-tiki-celeste">Erre a napra még nincs elérhető menünk</p>
-                            <p class="text-4xl font-bold text-tiki-celeste">kérjük gyere vissza késöbb.</p>
+                            <p class="text-4xl font-bold text-tiki-celeste">Kérjük gyere vissza késöbb.</p>
                         </div>
                     @endif
                 </div>
