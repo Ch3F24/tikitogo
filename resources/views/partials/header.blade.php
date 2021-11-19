@@ -16,7 +16,12 @@
                         <span class="block xl:inline">Tiki To Go</span>
                     </h1>
                     <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                        A Tiki To Go-val elérkezettnek láttuk az időt, hogy a fővárosba költözzünk. Célunk, hogy a bisztró konyhát a hétköznapokban, otthon és a munkahelyeden is élvezhesd.
+                        Bisztrózz otthon, vagy a munkahelyeden!
+                    </p>
+                    <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                        Számunkra a kiegyensúlyozott étrend alapja, a változatosság, a minőségi alapanyagok és a mindig
+                        frissen készült ételek. Vegetáriánus, laktóz vagy gluténérzékeny Vendégeink is gondolunk.
+                        Választhatsz a HETI MENÜből vagy a prémium minőségű A’LA CARTE étlapunkból is!
                     </p>
 {{--                    <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">--}}
 {{--                        <div class="rounded-md shadow">--}}

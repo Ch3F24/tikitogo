@@ -11,15 +11,30 @@ class PageController extends Controller
 {
     public function home()
     {
-        $first_day = Carbon::now()->startOfWeek();
-        $period = CarbonPeriod::create($first_day->format('Y-m-d'), $first_day->addDays(4)->format('Y-m-d'));
-        $days = collect();
+        $currentWeekFirstDay = Carbon::now()->startOfWeek();
+        $nextWeekFirstDay = Carbon::now()->addWeek()->startOfWeek();
 
-        foreach ($period as $key => $value) {
-            clock($value);
+        $currentWeekPeriod = CarbonPeriod::create($currentWeekFirstDay->format('Y-m-d'), $currentWeekFirstDay->addDays(4)->format('Y-m-d'));
+        $nextWeekPeriod = CarbonPeriod::create($nextWeekFirstDay->format('Y-m-d'), $nextWeekFirstDay->addDays(4)->format('Y-m-d'));
+        $weeks = collect([
+            'currentWeek'=>collect(),
+            'nextWeek'=>collect(),
+        ]);
+
+        foreach ($currentWeekPeriod as $key => $value) {
             $model = Day::query()->with(['foods','drinks'])->where('date',$value->format('Y-m-d'))->first();
 
-            $days->push([
+            $weeks['currentWeek']->push([
+                'day_name' => $value->locale('hu')->dayName,
+                'date' => $value->format('Y-m-d'),
+                'menu' => $model,
+            ]);
+        }
+
+        foreach ($nextWeekPeriod as $key => $value) {
+            $model = Day::query()->with(['foods','drinks'])->where('date',$value->format('Y-m-d'))->first();
+
+            $weeks['nextWeek']->push([
                 'day_name' => $value->locale('hu')->dayName,
                 'date' => $value->format('Y-m-d'),
                 'menu' => $model,
@@ -28,7 +43,7 @@ class PageController extends Controller
 
         $cart = session()->get('shopping-cart');
 
-        return view('index',compact('days','cart'));
+        return view('index',compact('weeks','cart'));
     }
 
     public function dashboard()

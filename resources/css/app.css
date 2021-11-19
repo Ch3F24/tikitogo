@@ -5,20 +5,24 @@
 html {
     scroll-behavior: smooth;
 }
+.week-container > div,
 .menu-container > div {
     min-height: calc(100vh / 2);
     display: none;
 }
+.week-container > input:checked +label + div,
 .menu-container > input:checked +label + div {
     display: block;
 }
-
+.week-container > input:checked + label,
 .menu-container > input:checked + label {
     @apply outline-none ring-2 ring-offset-2
 }
+.week-container > input:disabled + label,
 .menu-container > input:disabled + label {
     @apply opacity-60 cursor-not-allowed;
 }
+
 
 .menu-color_0 {
     @apply bg-tiki-blue;
@@ -34,4 +38,10 @@ html {
 }
 .menu-color_4 {
     @apply bg-tiki-magenta;
+}
+.active {
+    @apply sm:flex sm:justify-center relative;
+}
+.selected {
+    @apply bg-tiki-orange;
 }
