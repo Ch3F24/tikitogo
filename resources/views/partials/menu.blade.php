@@ -11,6 +11,7 @@
         </div>
     @endif
     @if($d['menu']->alacarte->count())
+        <h1 class="text-4xl font-bold text-tiki-celeste">Étel</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4 my-4 alacarte hidden">
             @each('partials.foods', $d['menu']->alacarte, 'food')
         </div>
