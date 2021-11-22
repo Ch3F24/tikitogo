@@ -12,7 +12,7 @@ class CreateDaysTables extends Migration
             // this will create an id, a "published" column, and soft delete and timestamps columns
             createDefaultTableFields($table);
 
-            $table->date('date')->unique();
+            $table->date('date');
         });
 
         Schema::create('day_revisions', function (Blueprint $table) {
@@ -23,10 +23,17 @@ class CreateDaysTables extends Migration
             createDefaultRelationshipTableFields($table, 'day', 'product');
             $table->integer('position')->unsigned()->nullable();
         });
+
+        Schema::create('day_alacarte', function (Blueprint $table) {
+            createDefaultRelationshipTableFields($table, 'day', 'product');
+            $table->integer('position')->unsigned()->nullable();
+        });
     }
 
     public function down()
     {
+        Schema::dropIfExists('day_alacarte');
+        Schema::dropIfExists('day_product');
         Schema::dropIfExists('day_revisions');
         Schema::dropIfExists('days');
     }
