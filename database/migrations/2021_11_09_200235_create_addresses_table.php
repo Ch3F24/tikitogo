@@ -27,6 +27,7 @@ class CreateAddressesTable extends Migration
             $table->integer('billing_postal_code');
             $table->string('billing_address');
             $table->string('billing_city');
+            $table->string('phone');
 
             $table->unsignedInteger('user_id');
             $table->timestamps();

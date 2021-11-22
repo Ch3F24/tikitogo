@@ -26,6 +26,14 @@ class Day extends Model
         return $this->belongsToMany(Product::class,'day_product')->where('products.type','drink');
     }
 
+    public function desserts() {
+        return $this->belongsToMany(Product::class,'day_product')->where('products.type','desserts');
+    }
+
+    public function alacarte() {
+        return $this->belongsToMany(Product::class,'day_alacarte');
+    }
+
     public function getTitleInBrowserAttribute()
     {
         return $this->date;

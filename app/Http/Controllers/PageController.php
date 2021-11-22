@@ -22,7 +22,7 @@ class PageController extends Controller
         ]);
 
         foreach ($currentWeekPeriod as $key => $value) {
-            $model = Day::query()->with(['foods','drinks'])->where('date',$value->format('Y-m-d'))->first();
+            $model = Day::query()->with(['foods','drinks','alacarte'])->where('date',$value->format('Y-m-d'))->first();
 
             $weeks['currentWeek']->push([
                 'day_name' => $value->locale('hu')->dayName,
@@ -32,7 +32,7 @@ class PageController extends Controller
         }
 
         foreach ($nextWeekPeriod as $key => $value) {
-            $model = Day::query()->with(['foods','drinks'])->where('date',$value->format('Y-m-d'))->first();
+            $model = Day::query()->with(['foods','drinks','alacarte'])->where('date',$value->format('Y-m-d'))->first();
 
             $weeks['nextWeek']->push([
                 'day_name' => $value->locale('hu')->dayName,

@@ -19,4 +19,13 @@ class OrderProducts extends Model
     {
         return $this->hasOne(Order::class,'order_id');
     }
+
+    public function products() {
+        return $this->hasOne(Product::class,'id','product_id');
+    }
+
+    public function options() {
+        return $this->hasOne(Option::class,'id','option_id');
+    }
+
 }

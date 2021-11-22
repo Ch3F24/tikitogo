@@ -35,4 +35,12 @@ return [
         'title' => 'Menus',
         'module' => true,
     ],
+//    'orders' => [
+//        'title' => 'Orders',
+//        'route' => 'admin.orders.index',
+//    ],
+    'orders' => [
+        'title' => 'Orders',
+        'module' => true,
+    ],
 ];

@@ -24,6 +24,7 @@ class Order extends Model
         'billing_postal_code',
         'billing_address',
         'billing_city',
+        'phone',
         'user_id'
     ];
 
@@ -31,9 +32,14 @@ class Order extends Model
         'payment_id',
     ];
 
+
     public function products()
     {
         return $this->hasMany(OrderProducts::class,'order_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }

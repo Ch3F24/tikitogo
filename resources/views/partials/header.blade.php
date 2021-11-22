@@ -16,20 +16,11 @@
                         <span class="block xl:inline">Tiki To Go</span>
                     </h1>
                     <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                        Bisztrózz otthon, vagy a munkahelyeden!
+                        Bisztrózz otthon vagy a munkahelyeden!
                     </p>
-                    <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                        Számunkra a kiegyensúlyozott étrend alapja, a változatosság, a minőségi alapanyagok és a mindig
-                        frissen készült ételek. Vegetáriánus, laktóz vagy gluténérzékeny Vendégeink is gondolunk.
-                        Választhatsz a HETI MENÜből vagy a prémium minőségű A’LA CARTE étlapunkból is!
+                    <p class="text-base text-gray-500 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
+                        A Tiki Beach Bisztró csapatától
                     </p>
-{{--                    <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">--}}
-{{--                        <div class="rounded-md shadow">--}}
-{{--                            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">--}}
-{{--                                Get started--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
                 </div>
             </main>
         </div>

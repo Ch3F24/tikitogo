@@ -16,4 +16,9 @@ class Option extends Model
         'tax'
     ];
 
+    public function orderProducts()
+    {
+        return $this->belongsToMany(OrderProducts::class,'order_id');
+    }
+
 }

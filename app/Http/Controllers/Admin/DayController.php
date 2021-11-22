@@ -17,6 +17,7 @@ class DayController extends ModuleController
         'skipCreateModal' => true,
         'editInModal' => false,
         'create' => true,
+        'duplicate' => true,
     ];
 
 //    protected $browserColumns = [

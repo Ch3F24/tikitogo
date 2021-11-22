@@ -18,6 +18,7 @@ class Address extends Model
         'billing_postal_code',
         'billing_address',
         'billing_city',
+        'phone',
         'user_id',
     ];
 

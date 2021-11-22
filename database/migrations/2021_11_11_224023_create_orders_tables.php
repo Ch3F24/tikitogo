@@ -9,7 +9,7 @@ class CreateOrdersTables extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             // this will create an id, a "published" column, and soft delete and timestamps columns
-            createDefaultTableFields($table,true,false,);
+            createDefaultTableFields($table,true);
 
             $table->string('payment_id')->unique()->index();
             $table->string('order_number')->unique()->index();
@@ -25,6 +25,7 @@ class CreateOrdersTables extends Migration
             $table->integer('billing_postal_code');
             $table->string('billing_address');
             $table->string('billing_city');
+            $table->string('phone');
             $table->unsignedInteger('user_id');
         });
 
@@ -41,6 +42,7 @@ class CreateOrdersTables extends Migration
             $table->unsignedBigInteger('order_id')->index();
             $table->unsignedBigInteger('product_id')->index();
             $table->unsignedBigInteger('option_id')->index();
+            $table->integer('position')->unsigned()->nullable();
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Route;
 
 // Register Twill routes here eg.
@@ -10,4 +11,6 @@ use Illuminate\Support\Facades\Route;
     Route::module('options');
     Route::module('days');
     Route::module('menus');
+    Route::module('orders');
 //});
+Route::get('orders/{id}/editing',[OrderController::class,'editing'])->name('admin.order.editing');

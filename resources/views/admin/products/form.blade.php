@@ -13,12 +13,16 @@
     'placeholder' => 'Select food type',
     'options' => [
         [
-        'value' => 'food',
-        'label' => 'Étel'
+            'value' => 'food',
+            'label' => 'Étel'
         ],
         [
-        'value' => 'drink',
-        'label' => 'Ital'
+            'value' => 'dessert',
+            'label' => 'Desszert'
+        ],
+        [
+            'value' => 'drink',
+            'label' => 'Ital'
         ]
     ]
     ])

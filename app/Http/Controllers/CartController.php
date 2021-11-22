@@ -43,6 +43,7 @@ class CartController extends Controller
     {
         $cart = session()->get('shopping-cart');
         $total = session()->get('cart-total');
+        $shipping = session()->get('shipping');
 
         if (Auth::check()) {
             $user = auth()->user()->with('address')->first();
@@ -50,7 +51,7 @@ class CartController extends Controller
             $user = [];
         }
 
-        return view('cart.index',compact('cart','total','user'));
+        return view('cart.index',compact('cart','total','user','shipping'));
     }
 
     public function remove(Request $request)
@@ -66,7 +67,6 @@ class CartController extends Controller
     public function checkout(CheckoutRequest $request)
     {
         $input = $request->except('item','_token');
-
         $user = $request->user();
         $input['user_id'] = $user->id;
 
@@ -84,7 +84,6 @@ class CartController extends Controller
         }
 
         $checkout = $this->cartService->checkout($user);
-
         return redirect($checkout);
     }
 

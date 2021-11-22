@@ -10,6 +10,11 @@
                             <input type="text" name="name" id="name" value="{{ isset($user->address->name) ? $user->address->name : old('name') ?? '' }}" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-tiki-celeste block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
 
+                        <div class="col-span-6 sm:col-span-5">
+                            <label for="phone" class="block text-sm font-medium text-gray-700">{{ __('Phone') }}</label>
+                            <input type="tel" name="phone" id="phone" value="{{ isset($user->address->phone) ? $user->address->phone : old('phone') ?? '' }}" autocomplete="phone" class="mt-1 focus:ring-indigo-500 focus:border-tiki-celeste block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+
                         <div class="col-span-6 sm:col-span-4">
                             <label for="shipping_postal_code" class="block text-sm font-medium text-gray-700">{{ __('Postal code') }}</label>
                             <input type="text" name="shipping_postal_code" id="shipping_postal_code" value="{{ isset($user->address->shipping_postal_code) ? $user->address->shipping_postal_code : old('shipping_postal_code') ?? '' }}" autocomplete="postal_code" class="mt-1 focus:ring-indigo-500 focus:border-tiki-celeste block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">

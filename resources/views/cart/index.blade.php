@@ -56,8 +56,16 @@
                         @endforeach
                     </div>
                     <div class="flex justify-between my-4">
-                        <p class="text-xl">Végösszeg</p>
-                        <p class="text-xl">{{ $total }} Ft</p>
+                        @if($shipping)
+                            <ul>
+                                <li><p class="text-lg"><span class="text-gray-500">Összesen:</span> {{ $total }} Ft</p></li>
+                                <li><p class="text-lg"><span class="text-gray-500">Szállítás:</span> {{ $shipping['UnitPrice'] }} Ft</p></li>
+                                <li><p class="text-lg"><span class="text-gray-500">Végösszeg:</span> {{ $total + $shipping['UnitPrice'] }} Ft</p></li>
+                            </ul>
+                        @else
+                            <p class="text-xl">Végösszeg</p>
+                            <p class="text-xl">{{ $total }} Ft</p>
+                        @endif
                     </div>
                     @auth()
                         <button type="submit" class="inline-flex justify-center py-2 px-4 w-full border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-tiki-celeste hover:bg-opacity-90 focus:outline-none">

@@ -17,8 +17,10 @@ use LaravelHungary\Barion\Enums\PaymentType;
 
 class CartService
 {
-    const DEFAULT_INSTANCE = 'shopping-cart';
+    const CART = 'shopping-cart';
     const TOTAL_PRICE = 'cart-total';
+    const SHIPPING = 'shipping';
+    const SHIPPPING_PRICE = 800;
 
     protected $session;
     protected $barion;
@@ -42,7 +44,7 @@ class CartService
 
         $cart->push($cartItem);
 
-        $this->session->put(self::DEFAULT_INSTANCE,$cart);
+        $this->session->put(self::CART,$cart);
         $this->calcTotalCart();
     }
 
@@ -58,7 +60,7 @@ class CartService
 
     public function getCart()
     {
-        return $this->session->has(self::DEFAULT_INSTANCE) ? $this->session->get(self::DEFAULT_INSTANCE) : collect([]);
+        return $this->session->has(self::CART) ? $this->session->get(self::CART) : collect([]);
     }
 
     public function remove($id)
@@ -66,9 +68,13 @@ class CartService
         $cart = $this->getCart();
 
         if ($cart->has($id)) {
-            $this->session->put(self::DEFAULT_INSTANCE, $cart->except($id));
+            $this->session->put(self::CART, $cart->except($id));
         }
         $this->calcTotalCart();
+
+        if (count($this->session->get(self::CART)) === 0) {
+            $this->forgetCart();
+        }
     }
 
     public function calcTotalCart()
@@ -83,7 +89,7 @@ class CartService
                 $total += $item['option']['gross_price'];
             }
         }
-
+        $this->setShipping($total);
         $this->session->put(self::TOTAL_PRICE,$total);
     }
 
@@ -127,6 +133,11 @@ class CartService
                 $items->push($this->createItem($item['option']));
             }
         }
+        if ($this->session->has(self::SHIPPING)) {
+            $shipping = $this->session->get(self::SHIPPING);
+            $items->push($shipping);
+            $total += $shipping['UnitPrice'];
+        }
 
         $payment = $this->barion->paymentStart([
             'PaymentType' => PaymentType::IMMEDIATE,
@@ -147,14 +158,6 @@ class CartService
                 ]
             ]
         ]);
-
-//        $this->createOrder($user,$payment);
-
-//        $order->update([
-//            'payment_id' => $payment->PaymentId,
-//            'total_gross_price' => $payment->Total,
-//            'status' => $payment->Status,
-//        ]);
 
         if (empty($payment->Errors)) {
             return $payment->GatewayUrl;
@@ -177,6 +180,18 @@ class CartService
         ]);
     }
 
+    public function createShippingItem()
+    {
+        return collect([
+            'Name' => 'Szállítás',
+            'Description' => 'Szállítási összeg',
+            'Quantity' => 1,
+            'Unit' => 'db',
+            'UnitPrice' => 800,
+            'ItemTotal' => 800
+        ]);
+    }
+
     public function createOrder(User $user,$payment)
     {
         $cart = $this->getCart();
@@ -195,6 +210,7 @@ class CartService
             'billing_postal_code' => $user->address->billing_postal_code,
             'billing_address' => $user->address->billing_address,
             'billing_city' => $user->address->billing_city,
+            'phone' => $user->address->phone,
             'user_id' => $user->id
         ]);
 
@@ -209,7 +225,7 @@ class CartService
 
     public function forgetCart()
     {
-        $this->session->forget(self::DEFAULT_INSTANCE);
+        $this->session->forget(self::CART);
         $this->session->forget(self::TOTAL_PRICE);
     }
 
@@ -217,6 +233,16 @@ class CartService
     {
         return $this->barion->getPaymentState($paymentId);
     }
+
+    public function setShipping($total)
+    {
+        if ( $total < 8000) {
+            if (!$this->session->has(self::SHIPPING)) $this->session->put(self::SHIPPING,$this->createShippingItem());
+        } else {
+            return $this->session->has(self::SHIPPING) ? $this->session->forget(self::SHIPPING) : null;
+        }
+    }
+
 
 
 }
