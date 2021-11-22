@@ -5,7 +5,7 @@
             @each('partials.foods', $d['menu']->foods, 'food')
         </div>
     @else
-        <div class="my-8 lg:my-16 text-center">
+        <div class="my-8 lg:my-16 text-center menu">
             <p class="text-4xl font-bold text-tiki-celeste">Erre a napra még nincs elérhető menünk</p>
             <p class="text-4xl font-bold text-tiki-celeste">Kérjük gyere vissza késöbb.</p>
         </div>
@@ -15,7 +15,7 @@
             @each('partials.foods', $d['menu']->alacarte, 'food')
         </div>
     @else
-        <div class="my-8 lg:my-16 text-center">
+        <div class="my-8 lg:my-16 text-center alacarte hidden">
             <p class="text-4xl font-bold text-tiki-celeste">Erre a napra még nincs elérhető menünk</p>
             <p class="text-4xl font-bold text-tiki-celeste">Kérjük gyere vissza késöbb.</p>
         </div>
