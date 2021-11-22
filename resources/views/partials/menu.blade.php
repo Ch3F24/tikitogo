@@ -1,7 +1,7 @@
 @if($d['menu'])
-    @if($d['menu']->foods->count() or $d['menu']->alacarte->count())<h1 class="text-4xl font-bold text-tiki-celeste">Étel</h1>@endif
     @if($d['menu']->foods->count())
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4 my-4 menu">
+            <h1 class="text-4xl font-bold text-tiki-celeste col-span-full">Étel</h1>
             @each('partials.foods', $d['menu']->foods, 'food')
         </div>
     @else
@@ -12,6 +12,7 @@
     @endif
     @if($d['menu']->alacarte->count())
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4 my-4 alacarte hidden">
+            <h1 class="text-4xl font-bold text-tiki-celeste col-span-full">Étel</h1>
             @each('partials.foods', $d['menu']->alacarte, 'food')
         </div>
     @else
