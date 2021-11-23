@@ -29,14 +29,14 @@
         scriptElement.async = true;
         scriptElement.src = 'https://pixel.barion.com/bp.js';
         firstScript.parentNode.insertBefore(scriptElement, firstScript);
-        window['barion_pixel_id'] = 'BPT-ajIgfpk1Wx-BC';
+        window['barion_pixel_id'] = 'BP-cx3GPs0mIA-3F';
 
         // Send init event
         bp('init', 'addBarionPixelId', window['barion_pixel_id']);
     </script>
 
     <noscript>
-        <img height="1" width="1" style="display:none" alt="Barion Pixel" src="https://pixel.barion.com/a.gif?ba_pixel_id='BPT-ajIgfpk1Wx-BC'&ev=contentView&noscript=1">
+        <img height="1" width="1" style="display:none" alt="Barion Pixel" src="https://pixel.barion.com/a.gif?ba_pixel_id='BP-cx3GPs0mIA-3F'&ev=contentView&noscript=1">
     </noscript>
 
 @endsection
