@@ -15,11 +15,11 @@
                     <a href="/#order-process">Rendelés mentete</a>
                 </li>
                 <li class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md">
-                    <a href="/#menu">ASZF</a>
+                    <a href="{{ route('aszf') }}">ASZF</a>
                 </li>
-                <li class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md">
-                    <a href="/#menu">Adatkezelési</a>
-                </li>
+{{--                <li class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md">--}}
+{{--                    <a href="/#menu">Adatkezelési</a>--}}
+{{--                </li>--}}
             </ul>
             <div>
                 <ul>

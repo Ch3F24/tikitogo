@@ -52,4 +52,10 @@ class PageController extends Controller
 
         return view('dashboard',compact('cart'));
     }
+
+    public function aszf()
+    {
+        $cart = session()->get('shopping-cart');
+        return view('aszf',compact('cart'));
+    }
 }

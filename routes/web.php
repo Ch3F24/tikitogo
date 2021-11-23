@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PageController::class,'home'])->name('home');
 Route::get('/dashboard',[ PageController::class,'dashboard'])->middleware(['auth'])->name('dashboard');
+Route::get('/aszf',[ PageController::class,'aszf'])->name('aszf');
 
 //Cart
 Route::get('/cart',[CartController::class,'index'])->name('cart.index');
