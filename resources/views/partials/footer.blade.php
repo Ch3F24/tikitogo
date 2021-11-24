@@ -32,8 +32,9 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d640.9023845149184!2d19.085312663444004!3d47.479985137209496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dce4f97d5979%3A0x81f6c54263f38a78!2zQnVkYXBlc3QsIMOcbGzFkWkgw7p0IDExNWIsIDEwOTE!5e0!3m2!1sen!2shu!4v1636743906717!5m2!1sen!2shu" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
-        <div class="mt-8">
-            <img src="{{asset('img/barion-card300px.png')}}" alt="Barion" class="mx-auto lg:mx-0">
+{{--        <div class="mt-8">--}}
+        <div class="fixed bottom-0 right-0">
+            <img src="{{asset('img/barion-card300px.png')}}" alt="Bankkártyás fizetés Barionnal" class="mx-auto lg:mx-0">
         </div>
 
     </div>
