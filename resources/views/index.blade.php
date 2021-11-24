@@ -139,5 +139,6 @@
         <p class="text-gray-500">Célunk, hogy a bisztró konyhát a hétköznapokban otthon és a munkahelyeden is élvezhesd.</p>
         <p class="text-gray-500">Étlapunk összeállításakor a legfontosabb szempontok a változatosság, minőségi alapanyagok és frissen készült ételek. Mindig gondolunk a laktóz és glutén érzékeny, vegán vagy vegetáriánus vendégeinkre is.</p>
         <p class="text-gray-500">Ha kíváncsi vagy a nyári életünkre nézd meg a Tiki Beach Bisztró facebook oldalát!</p>
+        <p><a class="text-gray-500 hover:text-gray-400" href="https://diningguide.hu/pesti-bazison-bukkant-fel-a-zamardi-kulthely-a-tiki-beach-bisztro/?sponsor=samsung">Dining guide megjelenés</a></p>
     </section>
 @endsection
