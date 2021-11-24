@@ -77,6 +77,7 @@
                         <button type="submit" class="inline-flex justify-center py-2 px-4 w-full border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-tiki-celeste hover:bg-opacity-90 focus:outline-none">
                             Bankkártyás fizetés Barionnal
                         </button>
+                        <small class="text-gray-500">* Bankártyás fizetés kizárólag a Barion Payment Zrt. rendszerén keresztül zajlik.</small>
                     @endauth
                @endif
                 <div class="mt-4">
