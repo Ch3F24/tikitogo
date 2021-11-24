@@ -15,13 +15,13 @@
                     <h1 class="text-4xl tracking-tight font-extrabold text-tiki-celeste sm:text-5xl md:text-6xl">
                         <span class="block xl:inline">Tiki To Go</span>
                     </h1>
-                    <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                        Bisztrózz otthon vagy a munkahelyeden!
-                    </p>
-                    <p class="text-base text-gray-500 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
-                        A Tiki Beach Bisztró csapatától
-                    </p>
-                    <p class="text-base text-gray-500 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
+{{--                    <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">--}}
+{{--                        Bisztrózz otthon vagy a munkahelyeden!--}}
+{{--                    </p>--}}
+{{--                    <p class="text-base text-gray-500 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">--}}
+{{--                        A Tiki Beach Bisztró csapatától--}}
+{{--                    </p>--}}
+                    <p class="text-base text-tiki-orange sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
                         Weboldalunk még próba üzemmódban van.<br>
                         Rendelésed várjuk telefonon!<br>
                         <a href="tel:+36706780302" class="text-gray-500 hover:text-gray-400">+36 70 678 0302</a>
