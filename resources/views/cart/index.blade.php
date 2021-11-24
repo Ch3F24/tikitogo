@@ -4,6 +4,11 @@
 @section('content')
    <section class="my-8">
    @if($cart && count($cart))
+           <p class="text-base text-tiki-orange sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
+               Weboldalunk még próba üzemmódban van.<br>
+               Rendelésed várjuk telefonon!<br>
+               <a href="tel:+36706780302" class="text-gray-500 hover:text-gray-400">+36 70 678 0302</a>
+           </p>
            @if ($errors->any())
                <div>
                    <div class="font-medium text-red-600">
