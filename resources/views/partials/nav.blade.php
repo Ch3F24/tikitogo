@@ -1,5 +1,5 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
-<nav class="bg-gray-800" x-data="{ mobile: false }">
+<nav class="sticky top-0 bg-gray-800 z-20" x-data="{ mobile: false }">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-24">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -25,7 +25,7 @@
                         <a href="/#menu" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Heti menü</a>
 
                         <a href="/#introduction" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Bemutatkozás</a>
-                        <a href="/#order-process" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Rendelés mentete</a>
+                        <a href="/#order-process" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Rendelés menete</a>
                         <a href="/#footer" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Kapcsolat</a>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
         <div class="px-2 pt-2 pb-3 space-y-1">
             <a href="/#menu" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Heti menü</a>
             <a href="/#introduction" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Bemutatkozás</a>
-            <a href="/#order-process" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Rendelés mentete</a>
+            <a href="/#order-process" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Rendelés menete</a>
             <a href="/#footer" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Kapcsolat</a>
             @auth()
                 <form method="POST" action="{{ route('logout') }}">

@@ -21,8 +21,8 @@ Route::get('/dashboard',[ PageController::class,'dashboard'])->middleware(['auth
 Route::get('/aszf',[ PageController::class,'aszf'])->name('aszf');
 
 //Cart
-Route::get('/cart',[CartController::class,'index'])->name('cart.index');
-Route::post('/',[CartController::class,'addToCart'])->name('cart.add');
+Route::get('/cart',[CartController::class,'index'])->middleware(['auth'])->name('cart.index');
+Route::post('/',[CartController::class,'addToCart'])->middleware(['auth'])->name('cart.add');
 Route::post('/cart',[CartController::class,'remove'])->name('cart.remove.item');
 Route::post('/cart/checkout',[CartController::class,'checkout'])->name('cart.checkout');
 Route::get('/checkout/response',[CartController::class,'checkoutResponse'])->name('cart.checkout.response');

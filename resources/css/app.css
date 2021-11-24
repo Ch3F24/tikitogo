@@ -43,5 +43,5 @@ html {
     @apply sm:flex sm:justify-center relative;
 }
 .selected {
-    @apply bg-tiki-orange;
+    @apply bg-tiki-orange outline-none ring-2 ring-offset-2;
 }
