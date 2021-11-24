@@ -74,7 +74,7 @@
                     </div>
                     @auth()
                         <button type="submit" class="inline-flex justify-center py-2 px-4 w-full border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-tiki-celeste hover:bg-opacity-90 focus:outline-none">
-                            Fizetés
+                            Bankkártyás fizetés Barionnal
                         </button>
                     @endauth
                @endif
