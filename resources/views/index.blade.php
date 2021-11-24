@@ -35,23 +35,22 @@
         <div class="@if($loop->first) active @else hidden @endif" data-week="{{ $key }}">
             @foreach($week as $d)
                 <div class="menu-container">
-                    <input type="radio" name="menu" id="{{ $d['date'] }}" onclick="location.replace('#' + '{{ $d['date'] }}')" data-date="{{ $d['date'] }}" class="hidden" @if( $d['date'] === now()->format('Y-m-d')) checked @elseif($d['date'] < now()->format('Y-m-d')) disabled @endif>
+                    <input type="radio" name="menu" id="{{ $d['date'] }}" data-date="{{ $d['date'] }}" class="hidden" @if( $d['date'] === now()->format('Y-m-d')) checked @elseif($d['date'] < now()->format('Y-m-d')) disabled @endif>
                     <label for="{{ $d['date'] }}" class="uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white menu-color_{{ $loop->index }} cursor-pointer shadow">
                         {{$d['day_name']}}
                     </label>
 
                     <div class="relative sm:absolute my-4 sm:mt-0 left-0 w-full" data-date="{{ $d['date'] }}">
-                        @if($d['date'] >= now()->format('Y-m-d'))
-                            @if($d['date'] === now()->format('Y-m-d') && now()->format('H') < 16 )
-                                @include('partials.menu')
-                            @elseif($d['date'] > now()->format('Y-m-d'))
-                                @include('partials.menu')
+                        @if($d['date'] <= now()->format('Y-m-d'))
+                            @include('partials.menu',['closed' => true])
+                        @elseif(\Carbon\Carbon::create($d['date'])->isTomorrow())
+                            @if(now()->format('H') < 16)
+                                @include('partials.menu',['closed' => false])
                             @else
-                            <div class="my-8 lg:my-16 text-center">
-                                <p class="text-4xl font-bold text-tiki-celeste">Erre a napra még nincs elérhető menünk</p>
-                                <p class="text-4xl font-bold text-tiki-celeste">Kérjük gyere vissza késöbb.</p>
-                            </div>
+                                @include('partials.menu',['closed' => true])
                             @endif
+                        @else
+                            @include('partials.menu',['closed' => false])
                         @endif
                     </div>
                 </div>
@@ -92,7 +91,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 my-8 gap-x-4 gap-y-4 lg:gap-x-24 lg:gap-y-8">
             <div class="border-b border-tiki-celeste pb-4">
-                <p class="text-xl font-bold mb-4 lg:mb-8 text-tiki-celeste">Honnan tudsz rendelni?</p>
+                <p class="text-xl font-bold mb-4 lg:mb-8 text-tiki-celeste">A szállítás módjai</p>
                 <p class="text-gray-500 text-left">Szállítás módjai:</p>
                 <ul class="list-disc list-inside text-left ml-2 mb-4">
                     <li class="text-gray-500">Kiszállítást a 8. és 9. kerületben vállalunk.</li>

@@ -18,10 +18,25 @@ class OrderController extends ModuleController
         'create' => true,
     ];
     protected $previewView = 'orders/preview';
-//    public function ordersIndex()
-//    {
-//
-//    }
+
+    protected $indexColumns = [
+        'name' => [ // field column
+            'title' => 'Name',
+            'field' => 'name',
+        ],
+        'shipping_address' => [ // field column
+            'title' => 'Cím',
+            'field' => 'shipping_address',
+        ],
+        'phone' => [ // field column
+            'title' => 'Telefonszám',
+            'field' => 'phone',
+        ],
+        'order_number' => [ // field column
+            'title' => 'Order number',
+            'field' => 'order_number',
+        ],
+    ];
 
     public function edit($id, $submoduleId = null)
     {

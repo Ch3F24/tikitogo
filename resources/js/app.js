@@ -10,19 +10,24 @@ window.addEventListener('load', (event) => {
     if (document.getElementById('menu')) {
         document.getElementById('menu').style.display = null
         document.getElementById('loading').style.display = 'none'
+        const menuDays = document.querySelectorAll('input[name="menu"]');
+
         if (document.querySelectorAll('input[name="menu"]')) {
-            if(window.matchMedia("(min-width: 640px)").matches) {
-                const menuDays = document.querySelectorAll('input[name="menu"]');
                 const menuContainer = document.getElementById('menu');
                 menuDays.forEach(e => {
-                    if (e.checked) {
-                        setContainerHeight(e,menuContainer)
+                    if(window.matchMedia("(min-width: 640px)").matches) {
+                        if (e.checked) {
+                            setContainerHeight(e,menuContainer)
+                        }
+                        e.addEventListener('change', (event) => {
+                            setContainerHeight(event.target,menuContainer)
+                        })
+                    } else {
+                        e.addEventListener('click', (event) => {
+                            document.querySelector(`label[for="${event.target.getAttribute('id')}"]`).scrollIntoView(true)
+                        })
                     }
-                    e.addEventListener('change', (event) => {
-                        setContainerHeight(event.target,menuContainer)
-                    })
                 })
-            }
         }
         function setContainerHeight(event,menuContainer) {
             let day = event.getAttribute('id');

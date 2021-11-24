@@ -12,7 +12,7 @@
 
                         <div class="col-span-6 sm:col-span-5">
                             <label for="phone" class="block text-sm font-medium text-gray-700">{{ __('Phone') }}</label>
-                            <input type="tel" name="phone" id="phone" value="{{ isset($user->address->phone) ? $user->address->phone : old('phone') ?? '' }}" autocomplete="phone" class="mt-1 focus:ring-indigo-500 focus:border-tiki-celeste block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input type="tel" name="phone" id="phone" value="{{ isset($user->address->phone) ? $user->address->phone : old('phone') ?? '' }}" autocomplete="phone" placeholder="+36301234567" class="mt-1 focus:ring-indigo-500 focus:border-tiki-celeste block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">

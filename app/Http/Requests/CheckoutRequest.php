@@ -26,6 +26,7 @@ class CheckoutRequest extends FormRequest
         return [
             'name' => 'required',
             'shipping_postal_code' => 'required|integer|between:1080,1099',
+            'phone' => 'required|regex:/^(\+36)[0-9]{9}$/',
             'shipping_address' => 'required',
 //            'vat_number' => 'required_without:same_as_shipping',
             'billing_name' => 'required_without:same_as_shipping',
@@ -43,6 +44,7 @@ class CheckoutRequest extends FormRequest
             'billing_city' => 'Számlázási város',
             'billing_postal_code' => 'Számlázási irányítószám',
             'billing_address' => 'Számlázási cím',
+            'phone' => 'Telefonszám'
         ];
     }
 

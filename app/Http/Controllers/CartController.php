@@ -7,9 +7,11 @@ use App\Http\Requests\CheckoutRequest;
 use App\Models\Address;
 use App\Models\Option;
 use App\Models\Product;
+use App\Notifications\OrderNotification;
 use App\Services\CartService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class CartController extends Controller
 {
@@ -93,8 +95,12 @@ class CartController extends Controller
         $payment = $this->cartService->getOrder($request->get('paymentId'));
 
         if ($payment->Status == 'Succeeded') {
-            $this->cartService->createOrder($user,$payment);
+            $order = $this->cartService->createOrder($user,$payment);
             $this->cartService->forgetCart();
+
+            Notification::route('mail','chef@wst.hu')
+                ->notify(new OrderNotification($order));
+
             return redirect()->route('order.response')->with(['order' => $payment]);
         } else {
             return redirect()->route('cart.index');

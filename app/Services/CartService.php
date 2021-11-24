@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Session\SessionManager;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use LaravelHungary\Barion\Barion;
 use LaravelHungary\Barion\Enums\Currency;
@@ -152,7 +153,7 @@ class CartService
             'Transactions' => [
                 [
 //                    'POSTransactionId' => 'ABC-1234',
-                    'Payee' => 'tikibeachbisztro@gmail.com',
+                    'Payee' => App::environment('production') ? 'tikibeachbisztro@gmail.com' : 'russhh24@gmail.com',
                     'Total' => $total,
                     'Items' => $items
                 ]
@@ -172,7 +173,7 @@ class CartService
         return collect([
             'Id' => $product->id,
             'Name' => $product->title,
-            'Description' => $product->description ?? '',
+            'Description' => $product->description ?? 'Étel a Tiki to go weboldalról.',
             'Quantity' => 1,
             'Unit' => 'db',
             'UnitPrice' => $product->gross_price,
