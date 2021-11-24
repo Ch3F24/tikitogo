@@ -20,7 +20,7 @@ class CartService
     const CART = 'shopping-cart';
     const TOTAL_PRICE = 'cart-total';
     const SHIPPING = 'shipping';
-    const SHIPPPING_PRICE = 800;
+    const SHIPPPING_PRICE = 400;
 
     protected $session;
     protected $barion;
@@ -187,8 +187,8 @@ class CartService
             'Description' => 'Szállítási összeg',
             'Quantity' => 1,
             'Unit' => 'db',
-            'UnitPrice' => 800,
-            'ItemTotal' => 800
+            'UnitPrice' => self::SHIPPPING_PRICE,
+            'ItemTotal' => self::SHIPPPING_PRICE
         ]);
     }
 
