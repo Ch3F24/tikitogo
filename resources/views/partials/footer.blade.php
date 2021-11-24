@@ -33,7 +33,7 @@
             </div>
         </div>
 {{--        <div class="mt-8">--}}
-        <div class="fixed bottom-0 right-0" style="bottom: 0">
+        <div class="mt-8 md:mt-0 md:fixed md:bottom-0 md:right-0" style="bottom: 0">
             <img src="{{asset('img/barion-card300px.png')}}" alt="Bankkártyás fizetés Barionnal" class="mx-auto lg:mx-0">
         </div>
 

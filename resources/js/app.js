@@ -24,7 +24,9 @@ window.addEventListener('load', (event) => {
                         })
                     } else {
                         e.addEventListener('click', (event) => {
-                            document.querySelector(`label[for="${event.target.getAttribute('id')}"]`).scrollIntoView(true)
+                            setTimeout(function () {
+                                document.querySelector(`label[for="${event.target.getAttribute('id')}"]`).scrollIntoView(true)
+                            }, 5);
                         })
                     }
                 })
@@ -126,6 +128,7 @@ window.addEventListener('load', (event) => {
             }
         }
     }
+
 
 });
 if (document.getElementById('same_as_shipping')) {

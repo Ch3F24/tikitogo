@@ -77,9 +77,9 @@
 
     <div class="sm:hidden" id="mobile-menu" x-show="mobile" @click.outside="mobile = false">
         <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="/#menu" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Heti menü</a>
-            <a href="/#introduction" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Bemutatkozás</a>
-            <a href="/#order-process" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Rendelés menete</a>
+            <a href="/#menu" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Heti menü</a>
+            <a href="/#introduction" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Bemutatkozás</a>
+            <a href="/#order-process" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Rendelés menete</a>
             <a href="/#footer" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Kapcsolat</a>
             @auth()
                 <form method="POST" action="{{ route('logout') }}">
