@@ -17,7 +17,7 @@
 
                         <div class="col-span-6 sm:col-span-4">
                             <label for="shipping_postal_code" class="block text-sm font-medium text-gray-700">{{ __('Postal code') }}</label>
-                            <input type="text" name="shipping_postal_code" id="shipping_postal_code" value="{{ isset($user->address->shipping_postal_code) ? $user->address->shipping_postal_code : old('shipping_postal_code') ?? '' }}" autocomplete="postal_code" class="mt-1 focus:ring-indigo-500 focus:border-tiki-celeste block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input type="number" name="shipping_postal_code" id="shipping_postal_code" value="{{ isset($user->address->shipping_postal_code) ? $user->address->shipping_postal_code : old('shipping_postal_code') ?? '' }}" autocomplete="postal_code" class="mt-1 focus:ring-indigo-500 focus:border-tiki-celeste block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
 
                         <div class="col-span-6">
