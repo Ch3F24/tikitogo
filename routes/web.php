@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,11 @@ Route::get('/checkout/response',[CartController::class,'checkoutResponse'])->nam
 
 
 Route::get('/order/response',[OrderController::class,'response'])->name('order.response');
+
+Route::get('/send-mail',function () {
+    Notification::route('mail','chef@wst.hu')
+        ->notify(new \App\Notifications\TestNotification());
+});
 
 
 //Order
