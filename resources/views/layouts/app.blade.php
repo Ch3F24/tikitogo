@@ -22,6 +22,17 @@
 {{--        <script src="{{ mix('js/app.js') }}" defer></script>--}}
 {{--        <script src="{{ mix('js/nav.js') }}" defer></script>--}}
 {{--        <script src="//unpkg.com/alpinejs" defer></script>--}}
+    @if(\Illuminate\Support\Facades\App::environment('production'))
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWMSBLNS3H"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-XWMSBLNS3H');
+        </script>
+    @endif
     </head>
     <body class="min-h-screen flex flex-col">
         @yield('body')
