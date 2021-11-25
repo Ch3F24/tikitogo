@@ -14,7 +14,7 @@
     <section class="" id="menu" style="display: none">
 
         <div class="sm:flex sm:justify-center items-center my-4">
-            <button id="currentWeek" class="week-btn uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-tiki-celeste cursor-pointer shadow selected">
+            <button id="currentWeek" class="week-btn uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-tiki-celeste cursor-pointer shadow">
                 Aktuális hét
             </button>
             <button id="nextWeek" class="week-btn uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-tiki-celeste cursor-pointer shadow">
@@ -22,20 +22,21 @@
             </button>
         </div>
 
-        <div class="sm:flex sm:justify-center items-center my-4">
-            <button id="menuBtn" class="week-btn uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-tiki-celeste cursor-pointer shadow selected">
-                Heti menü
-            </button>
-            <button id="alacarteBtn" class="week-btn uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-tiki-celeste cursor-pointer shadow">
+        <div class="flex hidden flex-col sm:flex-row sm:justify-center items-center my-4" id="menu-type-container">
+            <button id="alacarteBtn" class="uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-tiki-celeste cursor-pointer shadow">
                 À la carte
+            </button>
+            <button id="menuBtn" class="uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-tiki-celeste cursor-pointer shadow">
+                Heti menü
             </button>
         </div>
 
         @foreach($weeks as $key => $week)
-        <div class="@if($loop->first) active @else hidden @endif" data-week="{{ $key }}">
+{{--        <div class="@if($loop->first) active @else hidden @endif" data-week="{{ $key }}">--}}
+        <div class="hidden" data-week="{{ $key }}">
             @foreach($week as $d)
                 <div class="menu-container">
-                    <input type="radio" name="menu" id="{{ $d['date'] }}" data-date="{{ $d['date'] }}" class="hidden" @if( $d['date'] === now()->format('Y-m-d')) checked @elseif($d['date'] < now()->format('Y-m-d')) disabled @endif>
+                    <input type="radio" name="menu" id="{{ $d['date'] }}" data-date="{{ $d['date'] }}" class="hidden" @if($d['date'] < now()->format('Y-m-d')) disabled @endif>
                     <label for="{{ $d['date'] }}" class="uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white menu-color_{{ $loop->index }} cursor-pointer shadow">
                         {{$d['day_name']}}
                     </label>
@@ -57,6 +58,18 @@
             @endforeach
         </div>
         @endforeach
+            @foreach($alacarte as $key => $product)
+                    <div class="relative sm:absolute my-4 sm:mt-0 left-0 w-full hidden alacarte-container" data-alacarte-week="{{ $key }}">
+
+                        @if($d['date'] === now()->startOfWeek()->addDays(4)->format('Y-m-d') && now()->format('H') >= 16)
+                            @include('partials.alacarte',['closed' => true])
+                        @else
+                            @include('partials.alacarte',['closed' => false])
+                        @endif
+                    </div>
+{{--                </div>--}}
+            @endforeach
+{{--        </div>--}}
     </section>
 
     <section class="text-center my-4 mt-12">

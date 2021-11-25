@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Day;
+use App\Models\Menu;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
@@ -13,6 +14,12 @@ class PageController extends Controller
     {
         $currentWeekFirstDay = Carbon::now()->startOfWeek();
         $nextWeekFirstDay = Carbon::now()->addWeek()->startOfWeek();
+
+        $alacarte = collect([
+            'currentWeek' => Menu::query()->where('date',$currentWeekFirstDay->format('Y-m-d'))->with('alacarte')->first(),
+            'nextWeek' => Menu::query()->where('date',$nextWeekFirstDay->format('Y-m-d'))->with('alacarte')->first()
+
+        ]);
 
         $currentWeekPeriod = CarbonPeriod::create($currentWeekFirstDay->format('Y-m-d'), $currentWeekFirstDay->addDays(4)->format('Y-m-d'));
         $nextWeekPeriod = CarbonPeriod::create($nextWeekFirstDay->format('Y-m-d'), $nextWeekFirstDay->addDays(4)->format('Y-m-d'));
@@ -41,9 +48,10 @@ class PageController extends Controller
             ]);
         }
 
+
         $cart = session()->get('shopping-cart');
 
-        return view('index',compact('weeks','cart'));
+        return view('index',compact('weeks','cart','alacarte'));
     }
 
     public function dashboard()

@@ -23,4 +23,8 @@ class Menu extends Model
         return $this->belongsToMany(Day::class,'menu_day');
     }
 
+    public function alacarte() {
+        return $this->belongsToMany(Product::class,'menu_alacarte');
+    }
+
 }

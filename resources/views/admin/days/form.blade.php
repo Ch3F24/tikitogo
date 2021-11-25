@@ -16,11 +16,4 @@
         'label' => 'Products',
         'max' => '-1'
     ])
-
-    @formField('browser', [
-    'moduleName' => 'products',
-    'name' => 'alacarte',
-    'label' => 'alacarte',
-    'max' => '-1'
-    ])
 @stop

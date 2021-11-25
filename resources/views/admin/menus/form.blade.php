@@ -14,4 +14,10 @@
         'label' => 'Days',
         'max' => '5'
     ])
+    @formField('browser', [
+    'moduleName' => 'products',
+    'name' => 'alacarte',
+    'label' => 'alacarte',
+    'max' => '-1'
+    ])
 @stop

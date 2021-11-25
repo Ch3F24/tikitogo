@@ -11,9 +11,9 @@ window.addEventListener('load', (event) => {
         document.getElementById('menu').style.display = null
         document.getElementById('loading').style.display = 'none'
         const menuDays = document.querySelectorAll('input[name="menu"]');
+            const menuContainer = document.getElementById('menu');
 
         if (document.querySelectorAll('input[name="menu"]')) {
-                const menuContainer = document.getElementById('menu');
                 menuDays.forEach(e => {
                     if(window.matchMedia("(min-width: 640px)").matches) {
                         if (e.checked) {
@@ -33,7 +33,11 @@ window.addEventListener('load', (event) => {
         }
         function setContainerHeight(event,menuContainer) {
             let day = event.getAttribute('id');
-            let container = document.querySelector(`div[data-date='${day}']`)
+            if (!day) {
+                var container = event
+            } else {
+                var container = document.querySelector(`div[data-date='${day}']`)
+            }
             menuContainer.style.minHeight = null
             if(container) {
                 menuContainer.style.minHeight = `${container.clientHeight + menuContainer.clientHeight}px`
@@ -46,38 +50,42 @@ window.addEventListener('load', (event) => {
         const nextWeekBtn = document.getElementById('nextWeek');
         const menuBtn = document.getElementById('menuBtn');
         const alacarteBtn = document.getElementById('alacarteBtn');
+        const menuType = document.getElementById('menu-type-container');
 
 
         currentWeekBtn.addEventListener('click',function (event) {
-            if(currentWeekBtn.classList.contains('selected')) {
-                // currentWeekBtn.classList.remove('selected')
-            } else {
-                switchWeekTab(event,'nextWeek')
+            if(!currentWeekBtn.classList.contains('selected')) {
+                // switchWeekTab(event,'nextWeek')
                 currentWeekBtn.classList.add('selected')
                 nextWeekBtn.classList.remove('selected')
+                changeWeek()
+                showMenu()
+
             }
         })
         nextWeekBtn.addEventListener('click',function (event) {
 
-            if(nextWeekBtn.classList.contains('selected')) {
-                // nextWeekBtn.classList.remove('selected')
-            } else {
-                switchWeekTab(event,'currentWeek',true)
+            if(!nextWeekBtn.classList.contains('selected')) {
+                // switchWeekTab(event,'currentWeek',true)
                 nextWeekBtn.classList.add('selected')
                 currentWeekBtn.classList.remove('selected')
+                changeWeek()
+                showMenu()
             }
         })
 
         menuBtn.addEventListener('click',function (event) {
-            if(menuBtn.classList.contains('selected')) {
-                // currentWeekBtn.classList.remove('selected')
-            } else {
+            if(!menuBtn.classList.contains('selected')) {
                 document.querySelectorAll('div.menu').forEach(e => {
                     e.classList.remove('hidden')
                 })
-                document.querySelectorAll('div.alacarte').forEach(e => {
-                    e.classList.add('hidden')
-                })
+                let week = document.querySelector('button.week-btn.selected').getAttribute('id');
+                let weekDaysContainer = document.querySelector(`div[data-week="${week}"]`);
+                weekDaysContainer.classList.remove('hidden')
+                weekDaysContainer.classList.add('active')
+
+                let alacarteContainer = document.querySelector(`div[data-alacarte-week="${week}"].alacarte-container`);
+                alacarteContainer.classList.add('hidden')
 
                 menuBtn.classList.add('selected')
                 alacarteBtn.classList.remove('selected')
@@ -85,23 +93,51 @@ window.addEventListener('load', (event) => {
         })
         alacarteBtn.addEventListener('click',function (event) {
 
-            if(alacarteBtn.classList.contains('selected')) {
-                // nextWeekBtn.classList.remove('selected')
-            } else {
+            if(!alacarteBtn.classList.contains('selected')) {
+                let week = document.querySelector('button.week-btn.selected').getAttribute('id');
+                let weekDaysContainer = document.querySelector(`div[data-week="${week}"]`);
+                let alacarteContainer = document.querySelector(`div[data-alacarte-week="${week}"].alacarte-container`);
+
                 document.querySelectorAll('div.menu').forEach(e => {
                     e.classList.add('hidden')
                 })
-                document.querySelectorAll('div.alacarte').forEach(e => {
-                    e.classList.remove('hidden')
-                })
+
+                menuDays.forEach(e => {
+                    if (e.checked) {
+                        e.checked = false
+                    }
+                } )
+                alacarteContainer.classList.remove('hidden')
+                weekDaysContainer.classList.remove('active')
+                weekDaysContainer.classList.add('hidden')
+
                 alacarteBtn.classList.add('selected')
                 menuBtn.classList.remove('selected')
+
                 if(window.matchMedia("(min-width: 640px)").matches) {
                     const menuContainer = document.getElementById('menu');
-                    setContainerHeight(document.querySelector("input[name='menu']:checked"),menuContainer)
+                    setContainerHeight(alacarteContainer,menuContainer)
                 }
             }
         })
+        function showMenu() {
+            if (menuType.classList.contains('hidden')) {
+                menuType.classList.remove('hidden')
+            }
+        }
+        function changeWeek() {
+            let weekDaysContainer = document.querySelectorAll(`div[data-week]`);
+            let alacarteContainer = document.querySelectorAll(`div[data-alacarte-week].alacarte-container`);
+
+            weekDaysContainer.forEach(e => {
+                e.classList.add('hidden')
+                e.classList.remove('active')
+            })
+            menuBtn.classList.remove('selected')
+            alacarteBtn.classList.remove('selected')
+            alacarteContainer.forEach(e => e.classList.add('hidden'))
+            menuContainer.style.minHeight = null
+        }
     }
 
 
@@ -131,16 +167,7 @@ window.addEventListener('load', (event) => {
 
 
 });
-if (document.getElementById('same_as_shipping')) {
-    // const shippingCheckbox = document.getElementById('same_as_shipping');
-    // const shippingContainer = document.getElementById('shipping-container');
-    // shippingCheckbox.addEventListener('change', (event) => {
-    //     if (event.target.checked) {
-    //         // console   .log(shippingContainer)
-    //         shippingContainer.style.display = 'none';
-    //     } else {
-    //         shippingContainer.style.display = 'grid';
-    //     }
-    // })
-}
+// if (document.getElementById('same_as_shipping')) {
+//
+// }
     require('./item_remove');
