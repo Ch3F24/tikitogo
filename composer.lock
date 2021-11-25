@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "921ed2dd493f1cfded3959a3d40b3b76",
+    "content-hash": "e91a36935d81a93aa2783b47dd198cef",
     "packages": [
         {
             "name": "area17/twill",
@@ -285,16 +285,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.199.4",
+            "version": "3.204.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "047f6ce04b1de9320ca00bf393d6f03b9d036fa5"
+                "reference": "1f690db4dfd66d0c729f4f8db12431bb047b4900"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/047f6ce04b1de9320ca00bf393d6f03b9d036fa5",
-                "reference": "047f6ce04b1de9320ca00bf393d6f03b9d036fa5",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1f690db4dfd66d0c729f4f8db12431bb047b4900",
+                "reference": "1f690db4dfd66d0c729f4f8db12431bb047b4900",
                 "shasum": ""
             },
             "require": {
@@ -370,9 +370,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.199.4"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.204.5"
             },
-            "time": "2021-10-26T18:14:35+00:00"
+            "time": "2021-11-24T19:13:34+00:00"
         },
         {
             "name": "brick/math",
