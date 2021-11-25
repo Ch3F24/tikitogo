@@ -99,7 +99,7 @@ class CartController extends Controller
             $order = $this->cartService->createOrder($user,$payment);
             $this->cartService->forgetCart();
 
-            Notification::route('mail','chef@wst.hu')
+            Notification::route('mail','tikibeachbisztro@gmail.com')
                 ->notify(new OrderNotification($order));
 
             return redirect()->route('order.response')->with(['order' => $payment]);

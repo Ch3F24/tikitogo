@@ -31,10 +31,10 @@ Route::get('/checkout/response',[CartController::class,'checkoutResponse'])->nam
 
 Route::get('/order/response',[OrderController::class,'response'])->name('order.response');
 
-Route::get('/send-mail',function () {
-    Notification::route('mail','chef@wst.hu')
-        ->notify(new \App\Notifications\TestNotification());
-});
+//Route::get('/send-mail',function () {
+//    Notification::route('mail','chef@wst.hu')
+//        ->notify(new \App\Notifications\TestNotification());
+//});
 
 
 //Order
