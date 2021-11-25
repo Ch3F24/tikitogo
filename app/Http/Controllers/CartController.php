@@ -7,6 +7,7 @@ use App\Http\Requests\CheckoutRequest;
 use App\Models\Address;
 use App\Models\Option;
 use App\Models\Product;
+use App\Models\User;
 use App\Notifications\OrderNotification;
 use App\Services\CartService;
 use Illuminate\Http\Request;
@@ -48,7 +49,7 @@ class CartController extends Controller
         $shipping = session()->get('shipping');
 
         if (Auth::check()) {
-            $user = auth()->user()->with('address')->first();
+            $user = User::query()->with('address')->findOrFail(auth()->id());
         } else {
             $user = [];
         }
