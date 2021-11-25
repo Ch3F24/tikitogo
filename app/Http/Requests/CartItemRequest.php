@@ -30,6 +30,7 @@ class CartItemRequest extends FormRequest
             'option_id' => 'string',
             'option_name' => 'string',
             'option_price' => 'string',
+            'menu_date' => 'required|date'
         ];
     }
 }

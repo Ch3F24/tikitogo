@@ -36,7 +36,7 @@ class CartController extends Controller
         }
         $product = Product::query()->findOrFail($request['product']);
 
-        $this->cartService->add($product, $option);
+        $this->cartService->add($product,$request->get('menu_date'),$option);
 
         return redirect()->route('home');
     }

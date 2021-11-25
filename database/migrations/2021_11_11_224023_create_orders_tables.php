@@ -42,6 +42,7 @@ class CreateOrdersTables extends Migration
             $table->unsignedBigInteger('order_id')->index();
             $table->unsignedBigInteger('product_id')->index();
             $table->unsignedBigInteger('option_id')->index();
+            $table->dateTime('menu_date')->nullable();
             $table->integer('position')->unsigned()->nullable();
             $table->timestamps();
         });
@@ -49,9 +50,9 @@ class CreateOrdersTables extends Migration
 
     public function down()
     {
+        Schema::dropIfExists('order_products');
         Schema::dropIfExists('order_revisions');
         Schema::dropIfExists('order_slugs');
         Schema::dropIfExists('orders');
-        Schema::dropIfExists('order_products');
     }
 }

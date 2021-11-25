@@ -12,6 +12,7 @@
                 <input type="hidden" name="name" value="{{ $food->title }}">
                 <input type="hidden" name="product" value="{{ $food->id }}">
                 <input type="hidden" name="price" value="{{ $food->gross_price }}">
+                <input type="hidden" name="menu_date" value="{{ $d['date'] }}">
                 @if($food->options->count())
                     <fieldset class="ml-4">
                         <div class="mb-2 space-y-2">

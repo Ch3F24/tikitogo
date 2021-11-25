@@ -37,9 +37,9 @@ class CartService
         $this->barion = $barion;
     }
 
-    public function add(Product $product,$option = null)
+    public function add(Product $product,$menu_date,$option = null)
     {
-        $cartItem = $this->createCartItem($product,$option);
+        $cartItem = $this->createCartItem($product,$menu_date,$option);
 
         $cart = $this->getCart();
 
@@ -49,12 +49,13 @@ class CartService
         $this->calcTotalCart();
     }
 
-    public function createCartItem(Product $product,$option)
+    public function createCartItem(Product $product,$menu_date,$option)
     {
         return collect([
            'name' => $product->title,
            'product' => $product->id,
            'price' => $product->gross_price,
+           'menu_date' => $menu_date,
            'option' => $option,
         ]);
     }
@@ -219,6 +220,7 @@ class CartService
             $order->products()->create([
                 'product_id' => $item['product'],
                 'option_id' => isset($item['option']['id']) ?? null,
+                'menu_date' => $item['menu_date']
             ]);
         }
         return $order;

@@ -12,7 +12,8 @@ class OrderProducts extends Model
     protected $fillable = [
         'order_id',
         'product_id',
-        'option_id'
+        'option_id',
+        'menu_date'
     ];
 
     public function order()
