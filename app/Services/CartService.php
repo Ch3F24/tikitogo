@@ -230,6 +230,7 @@ class CartService
     {
         $this->session->forget(self::CART);
         $this->session->forget(self::TOTAL_PRICE);
+        $this->session->forget(self::SHIPPING);
     }
 
     public function getOrder($paymentId)

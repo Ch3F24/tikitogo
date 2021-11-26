@@ -4,6 +4,8 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,7 +26,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function() {
+            $files = File::allFiles(storage_path('framework/sessions/'));
+            foreach($files as $file){
+                File::delete(storage_path('framework/sessions/'.$file->getFilename()));
+            }
+        })->dailyAt('16:00')->timezone('Europe/Budapest');
     }
 
     /**
