@@ -32,7 +32,6 @@
         </div>
 
         @foreach($weeks as $key => $week)
-{{--        <div class="@if($loop->first) active @else hidden @endif" data-week="{{ $key }}">--}}
         <div class="hidden" data-week="{{ $key }}">
             @foreach($week as $d)
                 <div class="menu-container">
@@ -59,17 +58,14 @@
         </div>
         @endforeach
             @foreach($alacarte as $key => $product)
-                    <div class="relative sm:absolute my-4 sm:mt-0 left-0 w-full hidden alacarte-container" data-alacarte-week="{{ $key }}">
-
-                        @if($d['date'] === now()->startOfWeek()->addDays(4)->format('Y-m-d') && now()->format('H') >= 16)
-                            @include('partials.alacarte',['closed' => true])
-                        @else
-                            @include('partials.alacarte',['closed' => false])
-                        @endif
-                    </div>
-{{--                </div>--}}
+                <div class="relative sm:absolute my-4 sm:mt-0 left-0 w-full hidden alacarte-container" data-alacarte-week="{{ $key }}">
+                    @if($d['date'] === now()->startOfWeek()->addDays(4)->format('Y-m-d') && now()->format('H') >= 16)
+                        @include('partials.alacarte',['closed' => true])
+                    @else
+                        @include('partials.alacarte',['closed' => false])
+                    @endif
+                </div>
             @endforeach
-{{--        </div>--}}
     </section>
 
     <section class="text-center my-4 mt-12">
