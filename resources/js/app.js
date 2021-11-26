@@ -167,7 +167,4 @@ window.addEventListener('load', (event) => {
 
 
 });
-// if (document.getElementById('same_as_shipping')) {
-//
-// }
     require('./item_remove');
