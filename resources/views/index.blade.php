@@ -35,7 +35,8 @@
         <div class="hidden" data-week="{{ $key }}">
             @foreach($week as $d)
                 <div class="menu-container">
-                    <input type="radio" name="menu" id="{{ $d['date'] }}" data-date="{{ $d['date'] }}" class="hidden" @if($d['date'] < now()->format('Y-m-d')) disabled @endif>
+                    <input type="radio" name="menu" id="{{ $d['date'] }}" data-date="{{ $d['date'] }}" class="hidden">
+{{--                    <input type="radio" name="menu" id="{{ $d['date'] }}" data-date="{{ $d['date'] }}" class="hidden" @if($d['date'] < now()->format('Y-m-d')) disabled @endif>--}}
                     <label for="{{ $d['date'] }}" class="uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white menu-color_{{ $loop->index }} cursor-pointer shadow">
                         {{$d['day_name']}}
                     </label>
