@@ -44,7 +44,7 @@ class OrderNotification extends Notification
                     ->bcc('zsolt.horvath@wst.hu')
                     ->subject('Új rendelés érkezett')
                     ->line('Új rendelés érkezett')
-                    ->action('Megnyitás', url('/admin/orders/' . $this->order->id . '/edit' ));
+                    ->action('Megnyitás', 'https://tikitogo.hu/admin/orders/' . $this->order->id . '/edit');
     }
 
     /**
