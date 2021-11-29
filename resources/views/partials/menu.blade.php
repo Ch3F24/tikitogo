@@ -7,7 +7,7 @@
     @endif
     @if($d['menu']->foods->count())
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4 my-4 menu">
-            <h1 class="text-4xl font-bold text-tiki-celeste col-span-full">Étel</h1>
+            <h1 class="text-4xl font-bold text-tiki-celeste col-span-full">Ételek</h1>
             @foreach($d['menu']->foods as $food)
                 @include('partials.foods',['closed' => $closed])
             @endforeach
@@ -35,7 +35,7 @@
 {{--    @endif--}}
 
     @if($d['menu']->drinks->count())
-        <h1 class="text-4xl font-bold text-tiki-celeste mt-8">Ital</h1>
+        <h1 class="text-4xl font-bold text-tiki-celeste mt-8">Italok</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4 my-4">
 {{--            @each('partials.foods', $d['menu']->drinks, 'food')--}}
             @foreach($d['menu']->drinks as $food)
