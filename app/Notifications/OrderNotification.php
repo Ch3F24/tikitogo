@@ -41,6 +41,7 @@ class OrderNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->from('rendeles@wst.hu','Tiki To Go #' . $this->order->order_number)
                     ->bcc('zsolt.horvath@wst.hu')
                     ->subject('Új rendelés érkezett:' . $this->order->order_number)
                     ->line('Új rendelés érkezett')
