@@ -60,10 +60,11 @@
         @endforeach
             @foreach($alacarte as $key => $product)
                 <div class="relative sm:absolute my-4 sm:mt-0 left-0 w-full hidden alacarte-container" data-alacarte-week="{{ $key }}">
+                    {{ $loop->first }}
                     @if($d['date'] === now()->startOfWeek()->addDays(4)->format('Y-m-d') && now()->format('H') >= 16)
-                        @include('partials.alacarte',['closed' => true])
+                        @include('partials.alacarte',['closed' => true,'alacarteDate' => $key === 'currentWeek' ? $currentWeekPeriod : $nextWeekPeriod])
                     @else
-                        @include('partials.alacarte',['closed' => false])
+                        @include('partials.alacarte',['closed' => false, 'alacarteDate' => $key === 'currentWeek' ? $currentWeekPeriod : $nextWeekPeriod])
                     @endif
                 </div>
             @endforeach

@@ -2,7 +2,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4 my-4">
         <h1 class="text-4xl font-bold text-tiki-celeste col-span-full">Étel</h1>
         @foreach($product->alacarte as $food )
-            @include('partials.foods',['closed' => $closed])
+            @include('partials.foods',['closed' => $closed,'alacarteDate' => $alacarteDate])
         @endforeach
     </div>
 @else

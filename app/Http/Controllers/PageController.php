@@ -14,15 +14,16 @@ class PageController extends Controller
     {
         $currentWeekFirstDay = Carbon::now()->startOfWeek();
         $nextWeekFirstDay = Carbon::now()->addWeek()->startOfWeek();
+        clock($nextWeekFirstDay);
 
         $alacarte = collect([
             'currentWeek' => Menu::query()->where('date',$currentWeekFirstDay->format('Y-m-d'))->with('alacarte')->first(),
             'nextWeek' => Menu::query()->where('date',$nextWeekFirstDay->format('Y-m-d'))->with('alacarte')->first()
-
         ]);
 
         $currentWeekPeriod = CarbonPeriod::create($currentWeekFirstDay->format('Y-m-d'), $currentWeekFirstDay->addDays(4)->format('Y-m-d'));
         $nextWeekPeriod = CarbonPeriod::create($nextWeekFirstDay->format('Y-m-d'), $nextWeekFirstDay->addDays(4)->format('Y-m-d'));
+
         $weeks = collect([
             'currentWeek'=>collect(),
             'nextWeek'=>collect(),
@@ -47,11 +48,11 @@ class PageController extends Controller
                 'menu' => $model,
             ]);
         }
-
+        clock($weeks);
 
         $cart = session()->get('shopping-cart');
 
-        return view('index',compact('weeks','cart','alacarte'));
+        return view('index',compact('weeks','cart','alacarte','currentWeekPeriod','nextWeekPeriod'));
     }
 
     public function dashboard()
