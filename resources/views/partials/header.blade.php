@@ -21,9 +21,11 @@
                     <p class="text-base text-gray-500 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
                         A Tiki Beach Bisztró csapatától
                     </p>
-{{--                    <p class="text-base text-tiki-orange sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">--}}
-{{--                        Weboldalunk még próba üzemmódban van.--}}
-{{--                    </p>--}}
+                    <p class="text-base text-tiki-orange sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
+                        Weboldalunk még teszt üzemmódban van.
+                        Ha bármi hibát észlel kérem hívjon minket.
+                        <a href="tel:+36706780302" class="hover:text-gray-300">+36 70 678 0302</a>
+                    </p>
                 </div>
             </main>
         </div>
