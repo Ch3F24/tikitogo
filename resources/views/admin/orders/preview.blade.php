@@ -64,7 +64,7 @@
 
 
                     @foreach($order->products as $product)
-                        <div class="shadow p-4">
+                        <div class="shadow p-4 bg-gray-200">
                             <p>Termék: {{ $product->products->title }}</p>
                             <p>Melyik napra: {{ \Carbon\Carbon::create($product->menu_date)->format('Y-m-d') }}</p>
                             @if(isset($product->options->title))
@@ -72,7 +72,7 @@
                             @endif
                         </div>
                     @endforeach
-                    <div class="shadow p-4">
+                    <div class="shadow p-4 bg-green-200">
                         <p>Összesen fizetve: {{ $order->total_gross_price }} Ft</p>
                     </div>
                 </div>
