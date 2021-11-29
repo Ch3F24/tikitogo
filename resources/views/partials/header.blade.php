@@ -22,7 +22,7 @@
                         A Tiki Beach Bisztró csapatától
                     </p>
                     <p class="text-base text-tiki-orange sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
-                        Weboldalunk még teszt üzemmódban van.
+                        Weboldalunk még teszt üzemmódban van.<br>
                         Ha bármi hibát észlel kérem hívjon minket.
                         <a href="tel:+36706780302" class="hover:text-gray-300">+36 70 678 0302</a>
                     </p>
