@@ -62,7 +62,6 @@
                         </div>
                     </div>
 
-
                     @foreach($order->products as $product)
                         <div class="shadow p-4 bg-gray-200">
                             <p>Termék: {{ $product->products->title }}</p>

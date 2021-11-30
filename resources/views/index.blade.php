@@ -78,10 +78,10 @@
         <p class="text-2xl font-bold mb-8 md:mb-14 text-tiki-celeste">Étlapunk két részből áll</p>
         <div class="grid grid-col-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-x-24 text-left">
             <div class="text-gray-500 border-b border-tiki-celeste pb-4">
-                <p class="mb-4">A HETI MENŰben találod hétfőtől-péntekig a NAPI ajánlatunkat</p>
+                <p class="mb-4">A HETI MENÜben találod hétfőtől-péntekig a NAPI ajánlatunkat</p>
                 <p class="text-gray-500 text-left">Előrendelés:</p>
                 <ul class="list-disc list-inside text-left ml-2 mb-4">
-                    <li class="text-gray-500">Legkorábban megelőző hét csütörtökétől</li>
+                    <li class="text-gray-500">Az előrendelést munkanapokon 10-12 között szállítjuk.</li>
                     <li class="text-gray-500">Legkésőbb rendelés előtti munkanapon 16 óráig</li>
                     <li class="text-gray-500">Rendelhetsz egész hétre, vagy egy-egy napra</li>
                 </ul>
@@ -102,7 +102,6 @@
         <div class="grid grid-cols-1 md:grid-cols-2 my-8 gap-x-4 gap-y-4 lg:gap-x-24 lg:gap-y-8">
             <div class="border-b border-tiki-celeste pb-4">
                 <p class="text-xl font-bold mb-4 lg:mb-8 text-tiki-celeste">A szállítás módjai</p>
-                <p class="text-gray-500 text-left">Szállítás módjai:</p>
                 <ul class="list-disc list-inside text-left ml-2 mb-4">
                     <li class="text-gray-500">Kiszállítást a 8. és 9. kerületben vállalunk.</li>
                     <li class="text-gray-500">Rendelésed üzletünkben is átveheted, ebben az esetben nincs szállítási költség.</li>
@@ -117,6 +116,7 @@
             </div>
             <div class="border-b border-tiki-celeste pb-4">
                 <p class="text-xl font-bold mb-4 lg:mb-8 text-tiki-celeste">Fizetés</p>
+                <p class="text-gray-500 text-left mb-4">Itt a weboldalunkon.</p>
                 <p class="text-gray-500 text-left">Futárnál:</p>
                 <ul class="list-disc list-inside text-left ml-2 mb-4">
                     <li class="text-gray-500">Készpénzzel</li>
