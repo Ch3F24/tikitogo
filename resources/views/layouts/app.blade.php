@@ -35,14 +35,16 @@
 {{--        <script src="//unpkg.com/alpinejs" defer></script>--}}
     @if(\Illuminate\Support\Facades\App::environment('production'))
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWMSBLNS3H"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-213622578-1">
+            </script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
 
-            gtag('config', 'G-XWMSBLNS3H');
-        </script>
+                gtag('config', 'UA-213622578-1');
+            </script>
     @endif
     </head>
     <body class="min-h-screen flex flex-col">
