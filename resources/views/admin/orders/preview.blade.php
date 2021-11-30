@@ -60,6 +60,10 @@
                             <p class="text-gray-500">Számlázási Cím</p>
                             <p>{{ $order->billing_address }}</p>
                         </div>
+                        <div>
+                            <p class="text-gray-500">Megjegyzés</p>
+                            <p>{{ $order->note }}</p>
+                        </div>
                     </div>
 
                     @foreach($order->products as $product)

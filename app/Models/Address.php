@@ -20,6 +20,7 @@ class Address extends Model
         'billing_city',
         'phone',
         'user_id',
+        'note'
     ];
 
     public function user()

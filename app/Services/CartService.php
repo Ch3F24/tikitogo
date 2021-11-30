@@ -213,7 +213,8 @@ class CartService
             'billing_address' => $user->address->billing_address,
             'billing_city' => $user->address->billing_city,
             'phone' => $user->address->phone,
-            'user_id' => $user->id
+            'user_id' => $user->id,
+            'note' => $user->address->note
         ]);
 
         foreach ($cart as $key => $item) {
