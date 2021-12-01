@@ -41,7 +41,7 @@ class CreateOrdersTables extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id')->index();
             $table->unsignedBigInteger('product_id')->index();
-            $table->unsignedBigInteger('option_id')->index();
+            $table->unsignedBigInteger('option_id')->nullable()->index();
             $table->dateTime('menu_date')->nullable();
             $table->integer('position')->unsigned()->nullable();
             $table->timestamps();

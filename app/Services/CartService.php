@@ -197,6 +197,7 @@ class CartService
     public function createOrder(User $user,$payment)
     {
         $cart = $this->getCart();
+
 //        $payment = $this->barion->getPaymentState($paymentId);
 
         $order = Order::query()->create([
@@ -220,7 +221,7 @@ class CartService
         foreach ($cart as $key => $item) {
             $order->products()->create([
                 'product_id' => $item['product'],
-                'option_id' => isset($item['option']['id']) ?? null,
+                'option_id' => is_null($item['option']) ? null : $item['option']->id,
                 'menu_date' => $item['menu_date']
             ]);
         }
