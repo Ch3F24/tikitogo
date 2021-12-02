@@ -18,7 +18,7 @@
                         <div class="mb-2 space-y-2">
                             @foreach($food->options as $key => $option)
                                 <div class="flex items-center text-gray-500">
-                                    <input value="{{ $option->id }}" @if($closed) disabled @endif name="{{ 'option[' . $key . ']_id' }}" type="checkbox" class="focus:outline-none focus:ring-0 focus:ring-transparent h-4 w-4 text-tiki-celeste">
+                                    <input value="{{ $option->id }}" @if($closed) disabled @endif name="{{ 'option[' . $key . ']_id' }}" type="checkbox" class="focus:outline-none focus:ring-0 focus:ring-transparent h-4 w-4 text-tiki-celeste rounded-full">
                                     <label for="{{ 'option[' . $key . ']_id' }}" class="ml-3 block text-sm rounded-full">
                                         {{ $option->title }} @if($option->gross_price != 0)+{{ $option->gross_price }} Ft @endif
                                     </label>
