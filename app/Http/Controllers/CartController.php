@@ -30,11 +30,13 @@ class CartController extends Controller
 
     public function addToCart(CartItemRequest $request)
     {
-        if ($request->has('option_id')) {
-            $option = Option::query()->where('id',$request->option_id)->first();
+        if ($request->has('option')) {
+//                $option = Option::query()->where('id',[$request->option])->get();
+            $option = Option::find($request->option);
         } else {
             $option = null;
         }
+
         $product = Product::query()->findOrFail($request['product']);
 
         $this->cartService->add($product,$request->get('menu_date'),$option);
@@ -85,7 +87,6 @@ class CartController extends Controller
         } else {
             $user->address->update($input);
         }
-
         $checkout = $this->cartService->checkout($user);
         return redirect($checkout);
     }

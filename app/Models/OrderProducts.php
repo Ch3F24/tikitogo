@@ -13,7 +13,9 @@ class OrderProducts extends Model
         'order_id',
         'product_id',
         'option_id',
-        'menu_date'
+        'menu_date',
+        'net_price',
+        'gross_price'
     ];
 
     public function order()
@@ -27,6 +29,11 @@ class OrderProducts extends Model
 
     public function options() {
         return $this->hasOne(Option::class,'id','option_id');
+    }
+
+    public function productOptions()
+    {
+        return $this->belongsToMany(Option::class,'order_product_options','order_product_id','option_id')->withPivot(['gross_price','net_price']);
     }
 
 }

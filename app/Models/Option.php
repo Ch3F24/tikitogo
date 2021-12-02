@@ -18,7 +18,13 @@ class Option extends Model
 
     public function orderProducts()
     {
-        return $this->belongsToMany(OrderProducts::class,'order_id');
+//        return $this->belongsToMany(OrderProducts::class,'order_id');
+        return $this->belongsToMany(OrderProducts::class);
     }
+
+//    public function productOptions()
+//    {
+//        return $this->belongsToMany(Option::class);
+//    }
 
 }

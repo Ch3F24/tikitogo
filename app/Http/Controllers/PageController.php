@@ -14,7 +14,8 @@ class PageController extends Controller
     {
         $currentWeekFirstDay = Carbon::now()->startOfWeek();
         $nextWeekFirstDay = Carbon::now()->addWeek()->startOfWeek();
-        clock($nextWeekFirstDay);
+
+        clock(session()->get('shopping-cart'));
 
         $alacarte = collect([
             'currentWeek' => Menu::query()->where('date',$currentWeekFirstDay->format('Y-m-d'))->with('alacarte')->first(),
@@ -48,7 +49,6 @@ class PageController extends Controller
                 'menu' => $model,
             ]);
         }
-        clock($weeks);
 
         $cart = session()->get('shopping-cart');
 

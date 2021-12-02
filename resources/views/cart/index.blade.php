@@ -47,7 +47,10 @@
                                    <p>{{ $item['name'] }}</p>
                                    <p>{{ $item['price'] }} Ft</p>
                                    @if($item['option'])
-                                       <p class="text-sm text-gray-700">+ {{ $item['option']['title'] }} {{ $item['option']['gross_price'] }} Ft</p>
+                                       @foreach($item['option'] as $option)
+                                           <p class="text-sm text-gray-700">+ {{ $option['title'] }} {{ $option['gross_price'] }} Ft</p>
+                                       @endforeach
+{{--                                       <p class="text-sm text-gray-700">+ {{ $item['option']['title'] }} {{ $item['option']['gross_price'] }} Ft</p>--}}
                                    @endif
                                </div>
                               <div class="ml-auto">

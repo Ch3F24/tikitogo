@@ -54,6 +54,7 @@ class CartService
         return collect([
            'name' => $product->title,
            'product' => $product->id,
+           'net_price' => $product->net_price,
            'price' => $product->gross_price,
            'menu_date' => $menu_date,
            'option' => $option,
@@ -88,7 +89,9 @@ class CartService
             $total += $item['price'];
 
             if ($item['option']) {
-                $total += $item['option']['gross_price'];
+                foreach ($item['option'] as $option) {
+                    $total += $option['gross_price'];
+                }
             }
         }
         $this->setShipping($total);
@@ -106,7 +109,10 @@ class CartService
             $reCalcTotal += $item['price'];
 
             if ($item['option']) {
-                $reCalcTotal += $item['option']['gross_price'];
+                foreach ($item['option'] as $option) {
+                    $reCalcTotal += $option['gross_price'];
+                }
+
             }
         }
 
@@ -132,7 +138,10 @@ class CartService
             $items->push($this->createItem($product));
 
             if ($item['option']) {
-                $items->push($this->createItem($item['option']));
+                foreach ($item['option'] as $option) {
+                    $items->push($this->createItem($option));
+                }
+//                $items->push($this->createItem($item['option']));
             }
         }
         if ($this->session->has(self::SHIPPING)) {
@@ -197,7 +206,7 @@ class CartService
     public function createOrder(User $user,$payment)
     {
         $cart = $this->getCart();
-
+        $totalPrice = $this->session->get(self::TOTAL_PRICE);
 //        $payment = $this->barion->getPaymentState($paymentId);
 
         $order = Order::query()->create([
@@ -215,15 +224,23 @@ class CartService
             'billing_city' => $user->address->billing_city,
             'phone' => $user->address->phone,
             'user_id' => $user->id,
-            'note' => $user->address->note
+            'note' => $user->address->note,
         ]);
 
         foreach ($cart as $key => $item) {
-            $order->products()->create([
+            $orderProduct = $order->products()->create([
                 'product_id' => $item['product'],
-                'option_id' => is_null($item['option']) ? null : $item['option']->id,
-                'menu_date' => $item['menu_date']
+//                'option_id' => is_null($item['option']) ? null : $item['option']->id,
+                'menu_date' => $item['menu_date'],
+                'net_price' => $item['net_price'],
+                'gross_price' => $item['price']
             ]);
+
+            if (!is_null($item['option'])) {
+                foreach ($item['option'] as $option) {
+                    $orderProduct->productOptions()->attach($option->id,['gross_price' => $option->gross_price,'net_price' => $option->net_price]);
+                }
+            }
         }
         return $order;
     }

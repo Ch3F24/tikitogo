@@ -26,7 +26,7 @@ class Order extends Model
         'billing_city',
         'phone',
         'user_id',
-        'note'
+        'note',
     ];
 
     public $slugAttributes = [
