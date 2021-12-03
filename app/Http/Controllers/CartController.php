@@ -31,7 +31,6 @@ class CartController extends Controller
     public function addToCart(CartItemRequest $request)
     {
         if ($request->has('option')) {
-//                $option = Option::query()->where('id',[$request->option])->get();
             $option = Option::find($request->option);
         } else {
             $option = null;
@@ -41,14 +40,16 @@ class CartController extends Controller
 
         $this->cartService->add($product,$request->get('menu_date'),$option);
 
-        return redirect()->route('home');
+        $cart = session()->get('shopping-cart');
+
+        return response()->json(['itemsInCart' => count($cart)]);
+//        return redirect()->route('home');
     }
 
     public function index()
     {
         $cart = session()->get('shopping-cart');
         $total = session()->get('cart-total');
-//        $shipping = session()->get('shipping');
         $shipping = $this->cartService->setShipping($total);
 
         clock($shipping);

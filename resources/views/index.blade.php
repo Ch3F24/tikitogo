@@ -1,5 +1,8 @@
 @extends('layouts.main')
 
+@section('script')
+    <script src="{{ mix('js/front.js') }}"></script>
+@endsection
 @section('header')
     @include('partials.header')
 @endsection

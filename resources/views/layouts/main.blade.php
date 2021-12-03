@@ -17,6 +17,9 @@
     @include('partials.footer')
 
     <script src="{{ mix('js/app.js') }}"></script>
+
+    @yield('script')
+
     @if(\Illuminate\Support\Facades\App::environment('production'))
         <script>
             // Create BP element on the window

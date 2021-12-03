@@ -50,21 +50,16 @@ class PageController extends Controller
             ]);
         }
 
-        $cart = session()->get('shopping-cart');
-
-        return view('index',compact('weeks','cart','alacarte','currentWeekPeriod','nextWeekPeriod'));
+        return view('index',compact('weeks','alacarte','currentWeekPeriod','nextWeekPeriod'));
     }
 
     public function dashboard()
     {
-        $cart = session()->get('shopping-cart');
-
-        return view('dashboard',compact('cart'));
+        return view('dashboard');
     }
 
     public function aszf()
     {
-        $cart = session()->get('shopping-cart');
-        return view('aszf',compact('cart'));
+        return view('aszf');
     }
 }

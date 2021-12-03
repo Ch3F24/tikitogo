@@ -3,7 +3,8 @@
     @if($closed)
         <form class="flex opacity-40">
     @else
-        <form action="{{ route('cart.add') }}" method="POST" class="flex h-full">
+{{--        <form action="{{ route('cart.add') }}" method="POST" class="flex h-full">--}}
+        <form class="flex h-full" onsubmit="return addToCart(event)">
             @csrf
     @endif
             <div class="w-2/3 flex flex-col">
@@ -40,7 +41,9 @@
                         <label for="menu_date" class="block font-medium text-gray-500">Melyik napra rendeled?</label>
                         <select id="menu_date" name="menu_date" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             @foreach($alacarteDate as $day)
-                                <option @if(\Carbon\Carbon::create($day)->format('Y-m-d') === now('Europe/Budapest')->format('Y-m-d')) selected @endif value="{{ $day }}">{{ \Carbon\Carbon::create($day)->format('m-d') }}</option>
+                                <option @if(\Carbon\Carbon::create($day)->format('Y-m-d') === now('Europe/Budapest')->format('Y-m-d')) selected @endif
+                                        @if(\Carbon\Carbon::create($day)->format('Y-m-d') < now('Europe/Budapest')->format('Y-m-d')) disabled @endif
+                                        value="{{ $day }}">{{ \Carbon\Carbon::create($day)->format('m-d') }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -51,7 +54,7 @@
             <div class="text-right sm:px-6 w-1/3">
                 <p class="text-xl mb-2">{{ $food->gross_price }} FT</p>
                 @if(!$closed)
-                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-tiki-blue hover:bg-tiki-celeste focus:outline-none">
+                    <button class="add_to_cart-btn inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-tiki-blue hover:bg-tiki-celeste focus:outline-none">
                         {{ __('Add to cart') }}
                     </button>
                 @endif

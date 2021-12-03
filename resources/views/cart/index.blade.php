@@ -1,5 +1,8 @@
 @extends('layouts.main')
 
+@section('script')
+    <script src="{{ mix('js/cart.js') }}"></script>
+@endsection
 
 @section('content')
    <section class="my-8">

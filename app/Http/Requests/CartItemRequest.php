@@ -27,9 +27,10 @@ class CartItemRequest extends FormRequest
             'name' => 'required|string',
             'product' => 'required',
             'price' => 'required',
-            'option_id' => 'string',
-            'option_name' => 'string',
-            'option_price' => 'string',
+//            'option_id' => 'string',
+//            'option_name' => 'string',
+//            'option_price' => 'string',
+            'option' => 'array',
             'menu_date' => 'required|date'
         ];
     }
