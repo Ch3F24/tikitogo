@@ -94,7 +94,9 @@ class CartService
                 }
             }
         }
+
         $this->setShipping($total);
+
         $this->session->put(self::TOTAL_PRICE,$total);
     }
 
@@ -141,9 +143,10 @@ class CartService
                 foreach ($item['option'] as $option) {
                     $items->push($this->createItem($option));
                 }
-//                $items->push($this->createItem($item['option']));
             }
         }
+
+        // Check shipping amount
         if ($this->session->has(self::SHIPPING)) {
             $shipping = $this->session->get(self::SHIPPING);
             $items->push($shipping);
@@ -207,8 +210,9 @@ class CartService
     {
         $cart = $this->getCart();
         $totalPrice = $this->session->get(self::TOTAL_PRICE);
+        $pickup_date = $this->session->get('take_away');
 //        $payment = $this->barion->getPaymentState($paymentId);
-
+        clock($pickup_date);
         $order = Order::query()->create([
             'payment_id' => $payment->PaymentId,
             'order_number' => $payment->OrderNumber,
@@ -225,6 +229,8 @@ class CartService
             'phone' => $user->address->phone,
             'user_id' => $user->id,
             'note' => $user->address->note,
+            'pickup_date' => $pickup_date ? $pickup_date[0] : null,
+            'shipping_type' => $pickup_date ? 1 : 0
         ]);
 
         foreach ($cart as $key => $item) {
@@ -261,11 +267,11 @@ class CartService
     {
         if ( $total < 8000) {
             if (!$this->session->has(self::SHIPPING)) $this->session->put(self::SHIPPING,$this->createShippingItem());
+            return $this->session->get(self::SHIPPING);
         } else {
             return $this->session->has(self::SHIPPING) ? $this->session->forget(self::SHIPPING) : null;
         }
     }
-
 
 
 }

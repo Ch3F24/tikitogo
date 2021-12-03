@@ -1,7 +1,7 @@
 require('./bootstrap');
 
 import Alpine from 'alpinejs';
-
+window.CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').value;
 window.Alpine = Alpine;
 
 Alpine.start();
@@ -165,6 +165,27 @@ window.addEventListener('load', (event) => {
         }
     }
 
+    let priceContainer = document.getElementById('totalWithShipping');
+
+    document.getElementById('take_away').addEventListener('click', function (e) {
+        let container = document.getElementById('pickup_date');
+        if (e.target.checked) {
+            container.style.display = 'block';
+            container.querySelector('input').disabled = false;
+            priceContainer.classList.add('hidden')
+        } else {
+            container.style.display = 'none';
+            container.querySelector('input').disabled = true;
+            priceContainer.classList.remove('hidden')
+        }
+    })
+    if (document.getElementById('take_away').checked) {
+        let container = document.getElementById('pickup_date');
+        container.style.display = 'block';
+        container.querySelector('input').disabled = false;
+        priceContainer.classList.add('hidden')
+
+    }
 
 });
     require('./item_remove');

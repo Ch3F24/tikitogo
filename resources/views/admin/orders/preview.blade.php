@@ -69,9 +69,9 @@
                         <div class="flex flex-col">
                             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                        <table class="min-w-full divide-y divide-gray-200">
-                                            <thead class="bg-gray-50 hidden md:table-header-group">
+                                    <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg" style="border: 1px solid rgb(229, 231, 235)">
+                                        <table class="min-w-full divide-y divide-gray-200 table-auto">
+                                            <thead class="bg-gray-200 hidden md:table-header-group">
                                             <tr>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     Name
@@ -86,7 +86,7 @@
                                             </thead>
                                             <tbody class="bg-white divide-y divide-gray-200">
                                             @foreach($order->products as $product)
-                                                <tr class="flex flex-col md:table-row" style="border-top: 1px solid rgb(229, 231, 235);">
+                                                <tr class="flex flex-col md:table-row @if($loop->iteration % 2 == 0) bg-gray-200 @endif" style="border-top: 1px solid rgb(229, 231, 235);">
                                                     <td class="px-2 lg:px-6 py-2 lg:py-4 whitespace-nowrap">
                                                         <div class="flex items-center">
                                                             <div class="lg:ml-4">
@@ -111,13 +111,18 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    @if($order->shipping_type == 1)
+                        <div class="shadow p-4 bg-yellow-100 sm:rounded-lg">
+                            <p>Személyesen veszi át!</p>
+                            <p>Ekkor: {{ \Carbon\Carbon::create($order->pickup_date)->format('h:i') }}</p>
+                        </div>
+                    @endif
                     <div class="shadow p-4 bg-green-200 sm:rounded-lg">
                         <p>Összesen fizetve: {{ $order->total_gross_price }} Ft</p>
                     </div>

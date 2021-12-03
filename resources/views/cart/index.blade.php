@@ -68,8 +68,10 @@
                         @if($shipping)
                             <ul>
                                 <li><p class="text-lg"><span class="text-gray-500">Összesen:</span> {{ $total }} Ft</p></li>
-                                <li><p class="text-lg"><span class="text-gray-500">Szállítás:</span> {{ $shipping['UnitPrice'] }} Ft</p></li>
-                                <li><p class="text-lg"><span class="text-gray-500">Végösszeg:</span> {{ $total + $shipping['UnitPrice'] }} Ft</p></li>
+                                <div id="totalWithShipping">
+                                    <li><p class="text-lg"><span class="text-gray-500">Szállítás:</span> {{ $shipping['UnitPrice'] }} Ft</p></li>
+                                    <li><p class="text-lg"><span class="text-gray-500">Végösszeg:</span> {{ $total + $shipping['UnitPrice'] }} Ft</p></li>
+                                </div>
                             </ul>
                         @else
                             <p class="text-xl">Végösszeg</p>

@@ -27,6 +27,8 @@ class Order extends Model
         'phone',
         'user_id',
         'note',
+        'pickup_date',
+        'shipping_type'
     ];
 
     public $slugAttributes = [

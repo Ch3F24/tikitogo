@@ -48,7 +48,10 @@ class CartController extends Controller
     {
         $cart = session()->get('shopping-cart');
         $total = session()->get('cart-total');
-        $shipping = session()->get('shipping');
+//        $shipping = session()->get('shipping');
+        $shipping = $this->cartService->setShipping($total);
+
+        clock($shipping);
 
         if (Auth::check()) {
             $user = User::query()->with('address')->findOrFail(auth()->id());
@@ -87,6 +90,14 @@ class CartController extends Controller
         } else {
             $user->address->update($input);
         }
+
+        if($request->has('take_away')) {
+            if (!session()->has('take_away')) session()->push('take_away',$request->pickup_date);
+            if (session()->has('shipping')) session()->forget('shipping');
+        } else {
+            if (session()->has('take_away')) session()->forget('take_away');
+        }
+
         $checkout = $this->cartService->checkout($user);
         return redirect($checkout);
     }
@@ -108,4 +119,14 @@ class CartController extends Controller
             return redirect()->route('cart.index');
         }
     }
+//    public function setShipping(Request $request)
+//    {
+//        $request->validate([
+//            'data' => 'required|boolean'
+//        ]);
+//
+//        $this->cartService->shipping($request->data);
+//
+//        return redirect()->route('cart.index');
+//    }
 }

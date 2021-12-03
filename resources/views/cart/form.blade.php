@@ -25,19 +25,19 @@
                             <input type="text" name="shipping_address" id="shipping_address" autocomplete="street-address" value="{{ isset($user->address->shipping_address) ? $user->address->shipping_address : old('shipping_address') ?? '' }}" class="mt-1 focus:ring-indigo-500 focus:border-tiki-celeste block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
 
-{{--                        <div class="col-span-6 flex items-start">--}}
-{{--                            <div class="flex items-center h-5">--}}
-{{--                                <input id="shipping_type" name="shipping_type" type="checkbox" class="focus:outline-none focus:ring-transparent h-4 w-4 text-tiki-celeste border-gray-300 rounded">--}}
-{{--                            </div>--}}
-{{--                            <div class="ml-3 text-sm">--}}
-{{--                                <label for="shipping_type" class="font-medium text-gray-700">{{ __("I'm going for it") }}</label>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-span-6 sm:col-span-3 hidden" id="pickup_date">--}}
-{{--                            <label for="pickup_date" class="block text-sm font-medium text-gray-700">{{ __("Mikor jössz érte?") }}</label>--}}
-{{--                            <p class="text-sm text-gray-500">*A rendelést 10-12 között tudod átvenni.</p>--}}
-{{--                            <input disabled type="time" name="pickup_date" value="10:00" min="10:00" max="12:00" class="mt-1 focus:ring-indigo-500 focus:border-tiki-celeste block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">--}}
-{{--                        </div>--}}
+                        <div class="col-span-6 flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="take_away" name="take_away" type="checkbox" class="focus:outline-none focus:ring-transparent h-4 w-4 text-tiki-celeste border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="take_away" class="font-medium text-gray-700">{{ __("I'm going for it") }}</label>
+                            </div>
+                        </div>
+                        <div class="col-span-6 sm:col-span-3 hidden" id="pickup_date">
+                            <label for="pickup_date" class="block text-sm font-medium text-gray-700">{{ __("Mikor jössz érte?") }}</label>
+                            <p class="text-sm text-gray-500">*A rendelést 10-12 között tudod átvenni.</p>
+                            <input disabled type="time" name="pickup_date" value="10:00" min="10:00" max="12:00" class="mt-1 focus:ring-indigo-500 focus:border-tiki-celeste block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
                     </div>
 
                     <legend class="text-lg font-medium text-gray-900 my-4">{{ __('Billing') }}</legend>

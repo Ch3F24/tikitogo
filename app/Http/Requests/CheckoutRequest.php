@@ -32,7 +32,8 @@ class CheckoutRequest extends FormRequest
             'billing_name' => 'required_without:same_as_shipping',
             'billing_city' => 'required_without:same_as_shipping',
             'billing_postal_code' => 'required_without:same_as_shipping',
-            'billing_address' => 'required_without:same_as_shipping',
+            'billing_address'   => 'required_without:same_as_shipping',
+            'pickup_date'       => 'date_format:H:i|after_or_equal:10:00|before_or_equal:12:00'
         ];
     }
     public function attributes()
@@ -44,7 +45,8 @@ class CheckoutRequest extends FormRequest
             'billing_city' => 'Számlázási város',
             'billing_postal_code' => 'Számlázási irányítószám',
             'billing_address' => 'Számlázási cím',
-            'phone' => 'Telefonszám'
+            'phone' => 'Telefonszám',
+            'pickup_date' => 'Átvétel ideje'
         ];
     }
 

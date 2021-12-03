@@ -15,8 +15,8 @@ class AddNoteAndShippingTypeWithDateFieldsToOrders extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->string('note',500)->nullable();
-            $table->dateTime('pickup_date')->nullable();
-            $table->tinyInteger('shipping_type')->default(1);
+            $table->time('pickup_date')->nullable();
+            $table->tinyInteger('shipping_type')->default(0);
         });
     }
 

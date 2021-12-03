@@ -1,5 +1,5 @@
 
-var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').value;
+// var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').value;
 var buttons = document.querySelectorAll('.remove-cart-item');
 
 buttons.forEach(b => {
