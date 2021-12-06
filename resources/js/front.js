@@ -134,12 +134,6 @@ window.addEventListener('load', () => {
         }
 
         //Add to Cart
-        document.querySelectorAll('.add_to_cart-btn').forEach(e => {
-            e.addEventListener('click',function (btn) {
-                console.log(btn.target)
-            })
-        })
-
         window.addToCart = function(event) {
             loading.style.display = null
 
