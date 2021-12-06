@@ -144,20 +144,30 @@ window.addEventListener('load', () => {
             loading.style.display = null
 
             let options = [];
-            event.target.querySelectorAll('input[type=checkbox]:checked').forEach(e => {
-                options.push(e.value)
-            });
+            let menu = null;
+
+            if(event.target.querySelector('input[type=checkbox]')) {
+                event.target.querySelectorAll('input[type=checkbox]:checked').forEach(e => {
+                    options.push(e.value)
+                });
+            }
+
+            if (event.target.querySelector('#menu_date')) {
+                menu = event.target.querySelector('#menu_date').value
+            } else {
+                menu = event.target.querySelector('input[name="menu_date"]').value
+            }
+
             axios.post('/',{
                 _token: CSRF_TOKEN,
                 name:       event.target.querySelector('input[name="name"]').value,
                 product:    event.target.querySelector('input[name="product"]').value,
                 price:      event.target.querySelector('input[name="price"]').value,
-                menu_date:    event.target.querySelector('#menu_date').value,
+                menu_date:  menu,
                 option:     options,
             }).then(e => {
                 document.getElementById('itemsInCart').innerHTML = e.data.itemsInCart
                 loading.style.display = 'none'
-                // location.reload();
             }).catch(error => {
                 loading.style.display = 'none'
                 console.log(error)
