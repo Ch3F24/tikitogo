@@ -13,7 +13,7 @@
     @formField('browser', [
         'moduleName' => 'products',
         'name' => 'products',
-        'label' => 'Products',
+        'label' => 'Termékek',
         'max' => '-1'
     ])
 @stop

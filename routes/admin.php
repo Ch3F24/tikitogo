@@ -13,4 +13,5 @@ use Illuminate\Support\Facades\Route;
     Route::module('menus');
     Route::module('orders');
 //});
+Route::get('report', [OrderController::class,'report'])->name('ordersReport');
 Route::get('orders/{id}/editing',[OrderController::class,'editing'])->name('admin.order.editing');

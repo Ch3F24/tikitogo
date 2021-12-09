@@ -20,19 +20,19 @@ return [
 //        ],
 //    ],
     'products' => [
-        'title' => 'Products',
+        'title' => 'Termékek',
         'module' => true,
     ],
     'options' => [
-        'title' => 'Options',
+        'title' => 'Extrák',
         'module' => true,
     ],
     'days' => [
-        'title' => 'Days',
+        'title' => 'Napok',
         'module' => true,
     ],
     'menus' => [
-        'title' => 'Menus',
+        'title' => 'Hetek',
         'module' => true,
     ],
 //    'orders' => [
@@ -40,7 +40,11 @@ return [
 //        'route' => 'admin.orders.index',
 //    ],
     'orders' => [
-        'title' => 'Orders',
+        'title' => 'Rendelések',
         'module' => true,
+    ],
+    'ordersReport' => [
+        'title' => 'Rendelés jelentések',
+        'route' => 'admin.ordersReport',
     ],
 ];

@@ -2,6 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/js/front.js": "/js/front.js",
     "/js/cart.js": "/js/cart.js",
+    "/js/admin.js": "/js/admin.js",
     "/css/app.css": "/css/app.css",
     "/js/cart.min.js": "/js/cart.min.js",
     "/js/front.min.js": "/js/front.min.js"

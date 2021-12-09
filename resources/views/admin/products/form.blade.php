@@ -3,13 +3,13 @@
 @section('contentFields')
     @formField('input', [
         'name' => 'description',
-        'label' => 'Description',
+        'label' => 'Leírás',
         'maxlength' => 100
     ])
 
     @formField('select', [
     'name' => 'type',
-    'label' => 'Food type',
+    'label' => 'Termék típusa',
     'placeholder' => 'Select food type',
     'options' => [
         [
@@ -29,7 +29,7 @@
 
     @formField('input', [
         'name' => 'net_price',
-        'label' => 'Net Price',
+        'label' => 'Nettó ár',
         'required' => true,
         'type' => 'number',
         'note' => 'Hagyd üresen',
@@ -38,13 +38,13 @@
     ])
     @formField('input', [
         'name' => 'gross_price',
-        'label' => 'Gross Price',
+        'label' => 'Bruttó ár',
         'required' => true,
         'type' => 'number',
     ])
     @formField('select', [
         'name' => 'tax',
-        'label' => 'Tax',
+        'label' => 'Áfa',
         'placeholder' => 'Select tax',
         'options' => [
             [
@@ -56,7 +56,7 @@
 
     @formField('multi_select', [
         'name' => 'allergens',
-        'label' => 'Allergens',
+        'label' => 'Allergének',
         'unpack' => false,
         'options' => [
             [
@@ -129,7 +129,7 @@
     @formField('browser', [
         'moduleName' => 'options',
         'name' => 'options',
-        'label' => 'Options',
+        'label' => 'Extrák',
         'max' => '-1'
     ])
 @stop

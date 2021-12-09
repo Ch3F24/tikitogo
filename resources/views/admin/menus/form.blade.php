@@ -11,7 +11,7 @@
     @formField('browser', [
         'moduleName' => 'days',
         'name' => 'days',
-        'label' => 'Days',
+        'label' => 'Napok',
         'max' => '5'
     ])
     @formField('browser', [

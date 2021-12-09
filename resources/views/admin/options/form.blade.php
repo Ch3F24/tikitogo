@@ -3,12 +3,12 @@
 @section('contentFields')
     @formField('input', [
         'name' => 'description',
-        'label' => 'Description',
+        'label' => 'Leírás',
         'maxlength' => 100
     ])
     @formField('input', [
         'name' => 'net_price',
-        'label' => 'Net Price',
+        'label' => 'Nettó ár',
         'required' => true,
         'type' => 'number',
         'note' => 'Hagyd üresen',
@@ -16,13 +16,13 @@
     ])
     @formField('input', [
         'name' => 'gross_price',
-        'label' => 'Gross Price',
+        'label' => 'Bruttó ár',
         'required' => true,
         'type' => 'number',
     ])
     @formField('select', [
         'name' => 'tax',
-        'label' => 'Tax',
+        'label' => 'Áfa',
         'placeholder' => 'Select tax',
         'options' => [
             [

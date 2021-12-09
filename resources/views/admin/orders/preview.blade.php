@@ -1,9 +1,7 @@
 @extends('twill::layouts.free')
 
 @push('extra_css')
-{{--    <link href="{{ asset('chunk-common.css') }}" rel="stylesheet" crossorigin/>--}}
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
 @endpush
 
 @section('content')
@@ -74,7 +72,7 @@
                                             <thead class="bg-gray-200 hidden md:table-header-group">
                                             <tr>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Name
+                                                    Termék Neve
                                                 </th>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     Melyik napra
