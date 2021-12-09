@@ -9,6 +9,7 @@ use App\Models\Option;
 use App\Models\Product;
 use App\Models\User;
 use App\Notifications\OrderNotification;
+use App\Notifications\OrderResponse;
 use App\Services\CartService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -115,19 +116,11 @@ class CartController extends Controller
             Notification::route('mail','tikirendeles@gmail.com')
                 ->notify(new OrderNotification($order));
 
+            Notification::route('mail',$user->email)->notify(new OrderResponse());
+
             return redirect()->route('order.response')->with(['order' => $payment]);
         } else {
             return redirect()->route('cart.index');
         }
     }
-//    public function setShipping(Request $request)
-//    {
-//        $request->validate([
-//            'data' => 'required|boolean'
-//        ]);
-//
-//        $this->cartService->shipping($request->data);
-//
-//        return redirect()->route('cart.index');
-//    }
 }
