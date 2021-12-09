@@ -45,7 +45,7 @@
     @endif
 @else
     <div class="my-8 lg:my-16 text-center">
-        <p class="text-4xl font-bold text-tiki-celeste">Erre a napra még nincs elérhető menünk</p>
-        <p class="text-4xl font-bold text-tiki-celeste">Kérjük gyere vissza késöbb.</p>
+        <p class="text-4xl font-bold text-tiki-celeste">Mai nap 16 óráig tudtad leadni a rendelésed.</p>
+        <p class="text-4xl font-bold text-tiki-celeste">Ha kicsúsztál az időből hivj minket telefonon! <a href="tel:+36706780302" class="hover:text-tiki-orange">+36 70 678 0302</a></p>
     </div>
 @endif

@@ -39,7 +39,6 @@
             @foreach($week as $d)
                 <div class="menu-container">
                     <input type="radio" name="menu" id="{{ $d['date'] }}" data-date="{{ $d['date'] }}" class="hidden">
-{{--                    <input type="radio" name="menu" id="{{ $d['date'] }}" data-date="{{ $d['date'] }}" class="hidden" @if($d['date'] < now()->format('Y-m-d')) disabled @endif>--}}
                     <label for="{{ $d['date'] }}" class="uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white menu-color_{{ $loop->index }} cursor-pointer shadow">
                         {{$d['day_name']}}
                     </label>
@@ -78,33 +77,49 @@
 
     <section class="text-center my-8 lg:mt-16" id="order-process">
         <h2 class="text-3xl tracking-tight font-extrabold text-tiki-celeste sm:text-4xl md:text-5xl mb-8 border-b-2 pb-2 border-tiki-celeste inline-block">Rendelés menete</h2>
-        <p class="text-2xl font-bold mb-8 md:mb-14 text-tiki-celeste">Étlapunk két részből áll</p>
-        <div class="grid grid-col-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-x-24 text-left">
-            <div class="text-gray-500 border-b border-tiki-celeste pb-4">
-                <p class="mb-4">A HETI MENÜben találod hétfőtől-péntekig a NAPI ajánlatunkat</p>
-                <p class="text-gray-500 text-left">Előrendelés:</p>
-                <ul class="list-disc list-inside text-left ml-2 mb-4">
-                    <li class="text-gray-500">Az előrendelést munkanapokon 10-12 között szállítjuk.</li>
-                    <li class="text-gray-500">Legkésőbb rendelés előtti munkanapon 16 óráig</li>
-                    <li class="text-gray-500">Rendelhetsz egész hétre, vagy egy-egy napra</li>
-                </ul>
-            </div>
-            <div class="text-gray-500 border-b border-tiki-celeste pb-4">
-                <p class="mb-4">Az A'LA CARTE étlapunkat is hetente frissítjük.</p>
-                <p class="text-gray-500 text-left">Előrendelés:</p>
-                <ul class="list-disc list-inside text-left ml-2 mb-4">
-                    <li class="text-gray-500">Legkorábban megelőző hét csütörtökétől</li>
-                    <li class="text-gray-500">Legkésőbb rendelés előtti munkanapon 16 óráig</li>
-                </ul>
-                <p class="text-gray-500 text-left">Azonnali rendelés:</p>
-                <ul class="list-disc list-inside text-left ml-2 mb-4">
-                    <li class="text-gray-500">Munkanapokon 10 és 16 óra között</li>
-                </ul>
-            </div>
-        </div>
+{{--        <p class="text-2xl font-bold mb-8 md:mb-14 text-tiki-celeste">Étlapunk két részből áll</p>--}}
+{{--        <div class="grid grid-col-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-x-24 text-left">--}}
+{{--            <div class="text-gray-500 border-b border-tiki-celeste pb-4">--}}
+{{--                <p class="mb-4">A HETI MENÜben találod hétfőtől-péntekig a NAPI ajánlatunkat</p>--}}
+{{--                <p class="text-gray-500 text-left">Előrendelés:</p>--}}
+{{--                <ul class="list-disc list-inside text-left ml-2 mb-4">--}}
+{{--                    <li class="text-gray-500">Az előrendelést munkanapokon 10-12 között szállítjuk.</li>--}}
+{{--                    <li class="text-gray-500">Legkésőbb rendelés előtti munkanapon 16 óráig</li>--}}
+{{--                    <li class="text-gray-500">Rendelhetsz egész hétre, vagy egy-egy napra</li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--            <div class="text-gray-500 border-b border-tiki-celeste pb-4">--}}
+{{--                <p class="mb-4">Az A'LA CARTE étlapunkat is hetente frissítjük.</p>--}}
+{{--                <p class="text-gray-500 text-left">Előrendelés:</p>--}}
+{{--                <ul class="list-disc list-inside text-left ml-2 mb-4">--}}
+{{--                    <li class="text-gray-500">Legkorábban megelőző hét csütörtökétől</li>--}}
+{{--                    <li class="text-gray-500">Legkésőbb rendelés előtti munkanapon 16 óráig</li>--}}
+{{--                </ul>--}}
+{{--                <p class="text-gray-500 text-left">Azonnali rendelés:</p>--}}
+{{--                <ul class="list-disc list-inside text-left ml-2 mb-4">--}}
+{{--                    <li class="text-gray-500">Munkanapokon 10 és 16 óra között</li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="grid grid-cols-1 md:grid-cols-2 my-8 gap-x-4 gap-y-4 lg:gap-x-24 lg:gap-y-8">
             <div class="border-b border-tiki-celeste pb-4">
-                <p class="text-xl font-bold mb-4 lg:mb-8 text-tiki-celeste">A szállítás módjai</p>
+                <p class="text-xl font-bold mb-4 lg:mb-8 text-tiki-celeste">Rendelés:</p>
+                <ul class="list-disc list-inside text-left ml-2 mb-4">
+                    <li class="text-gray-500">A HETI menüből, itt az oldalon, csak előrendelést tudunk felvenni. Ha aznap szeretnél, akkor hívj minket telefonon!</li>
+                    <li class="text-gray-500">Az előrendelést megelőző munkanapokon 16 óráig adhatod le.</li>
+                    <li class="text-gray-500">Ha kiszállítást kérsz, az előrendelést 10 és 12 óra között szállítjuk.</li>
+                    <li class="text-gray-500">Ha az üzletünkben szeretnéd átvenni az ebédet, akkor azt a megjegyzés rovatban jelezd.Ide írd be az időpontot,hogy mikorra készüljünk el vele.</li>
+                    <li class="text-gray-500">Az A'LA CARTE étlapunkból aznap is tudsz rendelni.</li>
+                </ul>
+            </div>
+            <div class="border-b border-tiki-celeste pb-4">
+                <p class="text-xl font-bold mb-4 lg:mb-8 text-tiki-celeste">Szállítás</p>
+                <ul class="list-disc list-inside text-left">
+                    <li class="text-gray-500">Kiszállítást a 8. és 9. kerületben vállalunk.</li>
+                    <li class="text-gray-500">Rendelésed üzletünkben is átveheted, ebben az esetben nincs kiszállítási díj.</li>
+                    <li class="text-gray-500">A kiszállítási díj 400 Ft /cím.</li>
+                    <li class="text-gray-500">8000 Ft felett a kiszállítás ingyenes.</li>
+                </ul>
                 <ul class="list-disc list-inside text-left ml-2 mb-4">
                     <li class="text-gray-500">Kiszállítást a 8. és 9. kerületben vállalunk.</li>
                     <li class="text-gray-500">Rendelésed üzletünkben is átveheted, ebben az esetben nincs szállítási költség.</li>
@@ -133,13 +148,13 @@
                     <li class="text-gray-500">Közlemény rovatba, kérlek írd be a neved és címed!</li>
                 </ul>
             </div>
-            <div class="border-b border-tiki-celeste pb-4">
-                <p class="text-xl font-bold mb-4 lg:mb-8 text-tiki-celeste">Szállítás</p>
-                <ul class="list-disc list-inside text-left">
-                    <li class="text-gray-500">A kiszállítási díj 400 Ft /cím.</li>
-                    <li class="text-gray-500">8000 Ft felett a kiszállítás ingyenes.</li>
-                </ul>
-            </div>
+{{--            <div class="border-b border-tiki-celeste pb-4">--}}
+{{--                <p class="text-xl font-bold mb-4 lg:mb-8 text-tiki-celeste">Szállítás</p>--}}
+{{--                <ul class="list-disc list-inside text-left">--}}
+{{--                    <li class="text-gray-500">A kiszállítási díj 400 Ft /cím.</li>--}}
+{{--                    <li class="text-gray-500">8000 Ft felett a kiszállítás ingyenes.</li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
         </div>
     </section>
 
