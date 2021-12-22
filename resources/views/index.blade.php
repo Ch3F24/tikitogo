@@ -76,7 +76,7 @@
         </div>
         @endforeach
         @foreach($alacarte as $key => $product)
-            <div class="relative sm:absolute my-4 sm:mt-0 left-0 w-full hidden alacarte-container" data-alacarte-week="{{ $key }}">
+            <div class="relative sm:absolute my-4 sm:mt-0 left-0 w-full hidden alacarte-container sm:px-6 lg:px-8" data-alacarte-week="{{ $key }}">
 
                 {{-- Closed content--}}
                 @if(is_null($product))
