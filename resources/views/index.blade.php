@@ -33,42 +33,70 @@
                 Heti menü
             </button>
         </div>
-
         @foreach($weeks as $key => $week)
         <div class="hidden" data-week="{{ $key }}">
-            @foreach($week as $d)
-                <div class="menu-container">
-                    <input type="radio" name="menu" id="{{ $d['date'] }}" data-date="{{ $d['date'] }}" class="hidden">
-                    <label for="{{ $d['date'] }}" class="uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white menu-color_{{ $loop->index }} cursor-pointer shadow">
-                        {{$d['day_name']}}
-                    </label>
 
-                    <div class="relative sm:absolute my-4 sm:mt-0 left-0 w-full" data-date="{{ $d['date'] }}">
-                        @if($d['date'] <= now()->format('Y-m-d'))
-                            @include('partials.menu',['closed' => true])
-                        @elseif(\Carbon\Carbon::create($d['date'])->isTomorrow())
-                            @if(now()->format('H') < 16)
-                                @include('partials.menu',['closed' => false])
-                            @else
-                                @include('partials.menu',['closed' => true])
-                            @endif
-                        @else
-                            @include('partials.menu',['closed' => false])
-                        @endif
-                    </div>
+        {{-- Closed content--}}
+        @if($week[0]['date'] == '2021-12-27')
+            <div class="my-8 lg:my-16 text-center">
+                    <p class="text-4xl font-bold text-tiki-celeste">Kedves Vendégeink!</p>
+                    <p class="text-4xl font-bold text-tiki-celeste">December utolsó hetében zárva vagyunk. Január 3-tól várunk Benneteket szeretettel!</p>
+                    <p class="text-4xl font-bold text-tiki-celeste">Boldog, békés Ünnepeket kívánunk</p>
                 </div>
+        @endif
+        {{-- Closed content end --}}
+
+            @foreach($week as $d)
+                {{-- Closed content--}}
+                @if($week[0]['date'] != '2021-12-27')
+
+                    <div class="menu-container">
+                        <input type="radio" name="menu" id="{{ $d['date'] }}" data-date="{{ $d['date'] }}" class="hidden">
+                        <label for="{{ $d['date'] }}" class="uppercase font-bold w-full mb-2 sm:mb-0 sm:w-auto sm:ml-3 inline-flex items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white menu-color_{{ $loop->index }} cursor-pointer shadow">
+                            {{$d['day_name']}}
+                        </label>
+
+                        <div class="relative sm:absolute my-4 sm:mt-0 left-0 w-full" data-date="{{ $d['date'] }}">
+                            @if($d['date'] <= now()->format('Y-m-d'))
+                                @include('partials.menu',['closed' => true])
+                            @elseif(\Carbon\Carbon::create($d['date'])->isTomorrow())
+                                @if(now()->format('H') < 16)
+                                    @include('partials.menu',['closed' => false])
+                                @else
+                                    @include('partials.menu',['closed' => true])
+                                @endif
+                            @else
+                                @include('partials.menu',['closed' => false])
+                            @endif
+                        </div>
+                    </div>
+                @endif
+                {{-- Closed content end--}}
             @endforeach
         </div>
         @endforeach
-            @foreach($alacarte as $key => $product)
-                <div class="relative sm:absolute my-4 sm:mt-0 left-0 w-full hidden alacarte-container" data-alacarte-week="{{ $key }}">
+        @foreach($alacarte as $key => $product)
+            <div class="relative sm:absolute my-4 sm:mt-0 left-0 w-full hidden alacarte-container" data-alacarte-week="{{ $key }}">
+
+                {{-- Closed content--}}
+                @if(is_null($product))
+                    @if(\Carbon\Carbon::now()->week == 52)
+                        <div class="my-8 lg:my-16 text-center">
+                            <p class="text-4xl font-bold text-tiki-celeste">Kedves Vendégeink!</p>
+                            <p class="text-4xl font-bold text-tiki-celeste">December utolsó hetében zárva vagyunk. Január 3-tól várunk Benneteket szeretettel!</p>
+                            <p class="text-4xl font-bold text-tiki-celeste">Boldog, békés Ünnepeket kívánunk</p>
+                        </div>
+                    @endif
+                @else
                     @if($d['date'] === now()->startOfWeek()->addDays(4)->format('Y-m-d') && now()->format('H') >= 16)
                         @include('partials.alacarte',['closed' => true,'alacarteDate' => $key === 'currentWeek' ? $currentWeekPeriod : $nextWeekPeriod])
                     @else
                         @include('partials.alacarte',['closed' => false, 'alacarteDate' => $key === 'currentWeek' ? $currentWeekPeriod : $nextWeekPeriod])
                     @endif
-                </div>
-            @endforeach
+                @endif
+                {{-- Closed content end--}}
+            </div>
+        @endforeach
     </section>
 
     <section class="text-center my-4 mt-12">
@@ -119,10 +147,6 @@
                     <li class="text-gray-500">Rendelésed üzletünkben is átveheted, ebben az esetben nincs kiszállítási díj.</li>
                     <li class="text-gray-500">A kiszállítási díj 400 Ft /cím.</li>
                     <li class="text-gray-500">8000 Ft felett a kiszállítás ingyenes.</li>
-                </ul>
-                <ul class="list-disc list-inside text-left ml-2 mb-4">
-                    <li class="text-gray-500">Kiszállítást a 8. és 9. kerületben vállalunk.</li>
-                    <li class="text-gray-500">Rendelésed üzletünkben is átveheted, ebben az esetben nincs szállítási költség.</li>
                 </ul>
             </div>
             <div class="border-b border-tiki-celeste pb-4">
