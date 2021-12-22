@@ -80,13 +80,13 @@
 
                 {{-- Closed content--}}
                 @if(is_null($product))
-                    @if(\Carbon\Carbon::now()->week == 52)
+{{--                    @if(\Carbon\Carbon::now()->week == 52)--}}
                         <div class="my-8 lg:my-16 text-center">
                             <p class="text-4xl font-bold text-tiki-celeste">Kedves Vendégeink!</p>
                             <p class="text-4xl font-bold text-tiki-celeste">December utolsó hetében zárva vagyunk. Január 3-tól várunk Benneteket szeretettel!</p>
                             <p class="text-4xl font-bold text-tiki-celeste">Boldog, békés Ünnepeket kívánunk</p>
                         </div>
-                    @endif
+{{--                    @endif--}}
                 @else
                     @if($d['date'] === now()->startOfWeek()->addDays(4)->format('Y-m-d') && now()->format('H') >= 16)
                         @include('partials.alacarte',['closed' => true,'alacarteDate' => $key === 'currentWeek' ? $currentWeekPeriod : $nextWeekPeriod])
