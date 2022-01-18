@@ -37,13 +37,13 @@
         <div class="hidden" data-week="{{ $key }}">
 
         {{-- Closed content--}}
-        @if($week[0]['date'] == '2021-12-27')
-            <div class="my-8 lg:my-16 text-center">
-                    <p class="text-4xl font-bold text-tiki-celeste">Kedves Vendégeink!</p>
-                    <p class="text-4xl font-bold text-tiki-celeste">December utolsó hetében zárva vagyunk. Január 3-tól várunk Benneteket szeretettel!</p>
-                    <p class="text-4xl font-bold text-tiki-celeste">Boldog, békés Ünnepeket kívánunk</p>
-                </div>
-        @endif
+{{--        @if($week[0]['date'] == '2021-12-27')--}}
+{{--            <div class="my-8 lg:my-16 text-center">--}}
+{{--                    <p class="text-4xl font-bold text-tiki-celeste">Kedves Vendégeink!</p>--}}
+{{--                    <p class="text-4xl font-bold text-tiki-celeste">December utolsó hetében zárva vagyunk. Január 3-tól várunk Benneteket szeretettel!</p>--}}
+{{--                    <p class="text-4xl font-bold text-tiki-celeste">Boldog, békés Ünnepeket kívánunk</p>--}}
+{{--                </div>--}}
+{{--        @endif--}}
         {{-- Closed content end --}}
 
             @foreach($week as $d)
@@ -79,21 +79,21 @@
             <div class="relative sm:absolute my-4 sm:mt-0 left-0 w-full hidden alacarte-container sm:px-6 lg:px-8" data-alacarte-week="{{ $key }}">
 
                 {{-- Closed content--}}
-                @if(is_null($product))
+{{--                @if(is_null($product))--}}
 {{--                    @if(\Carbon\Carbon::now()->week == 52)--}}
-                        <div class="my-8 lg:my-16 text-center">
-                            <p class="text-4xl font-bold text-tiki-celeste">Kedves Vendégeink!</p>
-                            <p class="text-4xl font-bold text-tiki-celeste">December utolsó hetében zárva vagyunk. Január 3-tól várunk Benneteket szeretettel!</p>
-                            <p class="text-4xl font-bold text-tiki-celeste">Boldog, békés Ünnepeket kívánunk</p>
-                        </div>
+{{--                        <div class="my-8 lg:my-16 text-center">--}}
+{{--                            <p class="text-4xl font-bold text-tiki-celeste">Kedves Vendégeink!</p>--}}
+{{--                            <p class="text-4xl font-bold text-tiki-celeste">December utolsó hetében zárva vagyunk. Január 3-tól várunk Benneteket szeretettel!</p>--}}
+{{--                            <p class="text-4xl font-bold text-tiki-celeste">Boldog, békés Ünnepeket kívánunk</p>--}}
+{{--                        </div>--}}
 {{--                    @endif--}}
-                @else
+{{--                @else--}}
                     @if($d['date'] === now()->startOfWeek()->addDays(4)->format('Y-m-d') && now()->format('H') >= 16)
                         @include('partials.alacarte',['closed' => true,'alacarteDate' => $key === 'currentWeek' ? $currentWeekPeriod : $nextWeekPeriod])
                     @else
                         @include('partials.alacarte',['closed' => false, 'alacarteDate' => $key === 'currentWeek' ? $currentWeekPeriod : $nextWeekPeriod])
                     @endif
-                @endif
+{{--                @endif--}}
                 {{-- Closed content end--}}
             </div>
         @endforeach
